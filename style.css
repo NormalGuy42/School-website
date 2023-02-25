@@ -12,6 +12,7 @@
 body{
     width: 100%;
     height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 /*header start*/
 .presentation{
@@ -65,7 +66,8 @@ svg.burger{
 /*Welcome start*/
 .welcome{
     height: fit-content;
-    background-color: #eee;
+    background-color: red;
+    color: white;
     text-align: center;
     padding: 30px 20px;
 }
@@ -86,7 +88,17 @@ svg.burger{
 }
 .schools .box{
     box-shadow: var(--box-shadow);
-    padding: 15px;
+}
+.schools .box div{
+    text-align: center;
+    
+}
+.schools .box div img{
+    height: 40px;
+    width: 40px;
+}
+.schools p{
+    padding: 20px;
 }
 /*Navigation menu end*/
 /*About us start*/
