@@ -20,43 +20,50 @@ body{
     background-size: cover;
    background-position: center;
 }
-header{
-    padding: 20px 40px;
-}
-nav{
+/* header{
+    height: 80px;
+} */
+header nav{
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
 }
 .logo{
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
+    position: relative;
+    left: 40px;
 }
 .logo img{
     height: 100%;
     width: 100%;
 }
-nav ul{
+header nav ul{
     list-style-type: none;
     display: flex;
     align-items: center;
     background-color: black;
-    height: 60px;
+    height: 80px;
 }
-nav ul li{
+header nav ul li{
     margin-left: -1px;
-    padding: 0 10px;
+    padding: 0 15px;
     height: 100%;
     align-items: center;
     display: flex;
-    border: 1px solid white;
-} 
-nav ul li a{
+    border: 1px solid grey;
+    cursor: pointer;
+}
+header nav ul li:first-child{
+    border-bottom-left-radius: 8px;
+}
+header nav ul li a{
     color: white;
     text-decoration: none;
+    font-size: 18px;
 }
-svg.burger{height: 45px; width: 45px;display: none;}
+svg.burger{height: 45px; width: 45px;display: none;cursor: pointer;}
 /*Header end*/
 /*Explore card start*/
 .explore{
@@ -127,15 +134,31 @@ footer .social_block svg{
     width: 50px;
 }
 /*Footer end*/
-@media (max-width:600px) {
+@media (max-width:690px) {
     .presentation{
         background-position: unset;
     }
-    nav ul{
+    header{
+        background-color: #000000;
+    }
+    header nav ul{
         display: none;
+        width: 100%;
+        position: absolute;
+        top: 75px;
+        z-index: 2;
+        text-transform: uppercase;
+        height: fit-content;
+    }
+    header nav ul li{
+        background-color: black;
+        border: none;
+        justify-content: center;
+        height: 80px;
     }
     svg.burger{
         display: block;
+        margin-right: 10px;
     }
     /*Filler content start*/
     .content .container{
