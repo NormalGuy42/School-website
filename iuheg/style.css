@@ -11,7 +11,11 @@ body{
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
 }
-
+.show{
+    display: block !important;
+    height: 480px !important;
+    transition: all .5s;
+}
 /*Header start*/
 .presentation{
     height: 500px;
@@ -34,6 +38,9 @@ header nav{
     width: 80px;
     position: relative;
     left: 40px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
 }
 .logo img{
     height: 100%;
@@ -55,6 +62,9 @@ header nav ul li{
     border: 1px solid grey;
     cursor: pointer;
 }
+header nav ul li a:hover{
+    text-decoration: underline;
+}
 header nav ul li:first-child{
     border-bottom-left-radius: 8px;
 }
@@ -62,6 +72,9 @@ header nav ul li a{
     color: white;
     text-decoration: none;
     font-size: 18px;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 svg.burger{height: 45px; width: 45px;display: none;cursor: pointer;}
 /*Header end*/
@@ -91,12 +104,24 @@ svg.burger{height: 45px; width: 45px;display: none;cursor: pointer;}
 }
 .flex:first-child{
     flex-direction: row-reverse;
+    background-color: darkblue;
+    color: white;
+}
+.flex:first-child h3{
+    color: rgb(27,76,208);
+}
+.flex:last-child{
+    background-color: white;
+    color: black;
 }
 .content .container{
     width: 50%;
     height: 500px;
-    background-color: darkblue;
-    color: white;
+}
+.content .container h3{
+    text-align: center;
+    margin: 20px 0px; 
+    font-size: 36px;
 }
 .content .container img{
     width: 100%;
@@ -106,14 +131,50 @@ svg.burger{height: 45px; width: 45px;display: none;cursor: pointer;}
 }
 .content .container p{
     display: flex;
-    align-items: center;
-    text-align: center;
-    height: 100%;
+    flex-wrap: wrap;
+    line-height: 25px;
+    letter-spacing: 0.03em;
+    padding: 0px 10px;
+    font-size: 20px;
+    max-height: 435px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.content .container p span{
+    display: block;
+    margin-top: 20px;
+}
+.content .container a{
+    text-decoration: none;
+}
+.content .container button{
+    display: block;
+    width: 100px;
+    height: 30px;
+    font-size: 18px;
+    margin: 20px auto;
+    color: white;
+    background-color: purple;
+    cursor: pointer;
 }
 /*Filler content end*/
+/*Temoignages start*/
+.temoignages{
+    height: 300px;
+    background-color: darkblue;
+}
+/*Temoignage end*/
 /*Newsletter start*/
 .newsletter{
-    height: 200px;
+    height: 270px;
+}
+.newsletter h3{
+    font-size: 36px;
+    text-align: center;
+    margin: 20px 0;
+}
+.newsletter_box{
+    height: 100px;
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
@@ -150,7 +211,7 @@ footer{
     justify-content: space-around;
     padding: 40px 0;
 }
-footer label,span{
+footer label, footer span{
     display: block;
 }
 footer .social_block{
@@ -171,14 +232,14 @@ footer .social_block svg{
     header{
         background-color: #000000;
     }
-    header nav ul{
+    .menu{
         display: none;
         width: 100%;
         position: absolute;
-        top: 75px;
+        top: 80px;
         z-index: 2;
         text-transform: uppercase;
-        height: fit-content;
+        height: 0;
     }
     header nav ul li{
         background-color: black;
@@ -202,6 +263,9 @@ footer .social_block svg{
         flex-direction: column-reverse;
     }
     /*Filler content end*/
+    .newsletter h3{
+        font-size: 26px;
+    }
 }
 @media (max-width:400px) {
     .newsletter input{

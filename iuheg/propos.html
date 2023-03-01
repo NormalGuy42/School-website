@@ -4,14 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>A propos</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .title h1{
+            font-size: 72px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .propos_content{
+            width: 80%;
+            margin: 0 auto;
+            background-color: rgb(29,29,54);
+            color: white;
+            font-size: 18px;
+        }
+        .founder_content{
+            display: flex;
+        }
+        .founder_el{
+            width: 50%;
+            line-height: 25px;
+            letter-spacing: 0.05em;
+        }
+        .founder_el:last-child{
+            padding: 10px 20px;
+        }
+        .founder_el:last-child span{
+            display: block;
+        }
+        .founder_el h2{
+            text-align: center;
+            font-size: 30px;
+            color: rgb(27,76,208);
+            margin: 20px 0;
+        }
+        .founder_el img{
+            width: 100%;
+            object-fit: cover;
+        }
+        .text_content p{
+            line-height: 25px;
+            letter-spacing: 0.05em;
+            padding: 20px ;
+        }
+        .text_content p span{
+            display: block;
+        }
+        span.line{
+            margin: 10px 0;
+        }
+        footer{
+            margin-top: 50px;
+        }
+    </style>
+    <script src="script.js" defer></script>
+
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo"><a href="index.html"></a><img src="../assets/iuheg-transparent.png"></a></div>
-            <ul>
+            <div class="logo"><a href="index.html"><img src="../assets/iuheg-transparent.png"></a></div>
+            <ul class="menu">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="propos.html">A propos</a></li>
                 <li><a href="vision.html">Vision</a></li>
@@ -36,7 +93,59 @@
             </svg>
         </nav>
     </header>
-
+    <div class="title">
+        <h1>A propos de nous</h1>
+    </div>
+    <div class="propos_content">
+        <div class="founder_content">
+            <div class="founder_el"><img src="../assets/director.webp"></div>
+            <div class="founder_el">
+                <h2>Message du Recteur</h2>
+                <span class="line">Chers visiteurs,</span>
+                        <span class="line">  J’ai l’immense plaisir de vous souhaiter la bienvenue sur le portail Web de l’Institut Universitaire des 
+                        Hautes Etudes de Guinée (IUHEG). Il s’agit d’une plateforme qui vous mènera à la découverte virtuelle de 
+                        l’IUHEG, votre Université. Ce site web constitue un instrument essentiel de notre communication interne 
+                        et externe.</span>
+                        <span class="line"> Dans un environnement socio-économique national et international en perpétuelle mutation, caractérisé par 
+                        une compétition de plus exacerbée, les institutions performantes marquent la différence par la qualité des 
+                        formations qu’elles offrent aux apprenants. C’est dans ce contexte que l’IUHEG est appelée aujourd’hui, 
+                        plus que jamais à conforter et à améliorer son niveau d’excellence.
+                        </span>
+            </div>
+        </div>
+        <div class="text_content">
+            <p>
+    <span class="line">Cette mission primordiale s’inscrit dans sa stratégie de développement qui consiste à :</span>
+        <span>
+        • Sélectionner les meilleurs enseignants nationaux et internationaux pour dispenser des programmes innovants et de qualité aux apprenants ;
+        </span>
+        <span>
+        • Améliorer et renforcer de façon continue nos curricula de formation en conformité avec les standards internationaux;
+        </span>
+        <span>
+        • Construire un environnement propice à l’épanouissement du personnel d’encadrement et des étudiants ;
+        </span>
+        <span>
+        • Investir de façon soutenue dans l’innovation et dans l’attractivité de nos offres de formations au profit de nos étudiants ;
+        </span>
+        <span>
+        • Moderniser la gouvernance, encourager la recherche et l’innovation, améliorer la formation et le bien-être de l’étudiant et de l’enseignant ;
+        </span>
+        <span>
+        • Développer des partenariats solides et diversifiés à travers un réseautage inter-universitaire national et international;
+        </span>
+        <span>
+        • Être résolument engagé dans un processus d’Assurance Qualité, à travers l’Agence National d’Assurance Qualité, qui garantit, au profit du public, la qualité de nos offres de formation et la reconnaissance de nos diplômes sur le plan national, continental et même international.
+        </span>
+        <span class="line">
+        Pour atteindre nos objectifs, nous veillerons ensemble à ce que l’IUHEG ne soit pas uniquement un lieu de formation classique de jeunes se limitant juste à la licence, mais aussi, une institution de formation dans des programmes en MBA et en MASTERS, dans différents domaines socio-économique et culturelle.
+        </span>
+        <span class="line">
+        Alors, si vous êtes un jeune étudiant, un cadre dans l’administration publique, un professionnel dans le secteur privé, si vous avez le goût pour un monde innovant, la volonté d’exceller et l’ambition de réussir, mettez-vous sur le chemin de l’innovation en rejoignant l’IUHEG à SIMAMBOSSIA dans la commune de RATOMA, à Conakry en République de GUINEE
+        </span>
+        </p>
+        </div>
+    </div>
     <!--Footer start-->
     <footer>
         <div class="block">
