@@ -70,12 +70,12 @@ header nav ul li:first-child{
 header nav ul li a{
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     height: 100%;
     display: flex;
     align-items: center;
 }
-svg.burger{height: 45px; width: 45px;display: none;cursor: pointer;}
+svg.burger{height: 60px; width: 60px;display: none;cursor: pointer;}
 /*Header end*/
 /*Explore card start*/
 .explore{
@@ -238,7 +238,7 @@ footer .social_block svg{
         height: 80px;
         width: 80px;
         position: relative;
-        left: 40px;
+        left: 28px;
         cursor: pointer;
         background-color: white;
         border-radius: 50%;
