@@ -24,14 +24,14 @@
         }
         /*header start*/
         .presentation{
-            height: 100vh;
+            height: 120vh;
             width: 100%;
             background: url('assets/students\ pic.webp') no-repeat;
             background-position: center;
             background-size: cover ;
         }
         .overlay{
-            height: 100%;
+            height: 120vh;
             width: 100%;
             background-color: #01509d;
             opacity: .9;
@@ -78,7 +78,7 @@
         .schools{
             width: 95%;
             display: grid;
-            grid-template-columns: repeat(auto-fit,280px);
+            grid-template-columns: repeat(auto-fit,320px);
             justify-content: space-evenly;
             /* gap: 4.5rem; */
             margin: 0 auto;
@@ -91,6 +91,7 @@
         .schools .box{
             box-shadow: var(--box-shadow);
             background-color: white;
+            height: 280px;
         }
         .schools .box div{
             text-align: center;
@@ -122,7 +123,8 @@
         /*Newsletter end*/
         /*Footer start*/
         footer{
-            background-color: #61406e;
+            background-color: #2c2c2c;
+            color: white;
             padding: 30px 20px;
             display: flex;
             flex-wrap: wrap;
@@ -145,15 +147,15 @@
         }
 
         /*Footer end*/
-        @media (max-width:1000px) {
+        @media (max-width:1110px) {
             .presentation{
-                height: 220vh;
+                height: 150vh;
             }
             .overlay{
-                height: 220vh;
+                height: 150vh;
             }
             .schools{
-                grid-template-columns: repeat(1,280px);
+                grid-template-columns: repeat(1,320px);
                 justify-content: center;
                 gap:4.5rem;
             }

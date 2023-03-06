@@ -11,11 +11,7 @@ body{
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
 }
-.show{
-    display: block !important;
-    height: 480px !important;
-    transition: all .5s;
-}
+
 /*Header start*/
 .presentation{
     height: 500px;
@@ -29,16 +25,20 @@ body{
 } */
 header nav{
     width: 100%;
+    background-color: #161616;
+    /* background-color: #2c2c2c; */
 }
 .logo{
     height: 100px;
     position: relative;
     cursor: pointer;
     background-color: white;
-    width: 100%;
+    width: 100px;
     display: flex;
     justify-content: center;
     padding: 5px;
+    border-radius: 50%;
+    margin: 0 auto;
 }
 .logo img{
     height: 100px;
@@ -48,7 +48,7 @@ header nav ul{
     list-style-type: none;
     display: flex;
     align-items: center;
-    background-color: black;
+    background-color: #161616;
     height: 80px;
     justify-content: space-evenly;
 }
@@ -77,133 +77,18 @@ header nav ul li a{
 }
 svg.burger{height: 60px; width: 60px;display: none;cursor: pointer;}
 /*Header end*/
-/*Explore card start*/
-.explore{
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    padding: 30px 20px;
-}
-.explore .container{
+/*title start*/
+.title h1{
+    font-size: 72px;
     text-align: center;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-    height: 200px;
-    width: 400px;
-    border: 1px solid;
+    margin: 30px 0;
 }
-/*Explore card end*/
-/*Filler content start*/
-.flex{
-    display: flex;
-    flex-wrap: wrap;
-}
-.flex:first-child{
-    flex-direction: row-reverse;
-    background-color: darkblue;
-    color: white;
-}
-.flex:first-child h3{
-    color: rgb(27,76,208);
-}
-.flex:last-child{
-    background-color: white;
-    color: black;
-}
-.content .container{
-    width: 50%;
-    min-height: 500px;
-}
-.content .container h3{
-    text-align: center;
-    margin: 20px 0px; 
-    font-size: 36px;
-}
-.content .container img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-.content .container p{
-    display: flex;
-    flex-wrap: wrap;
-    line-height: 25px;
-    letter-spacing: 0.03em;
-    padding: 0px 10px;
-    font-size: 20px;
-    max-height: 435px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.content .container p span{
-    display: block;
-    margin-top: 20px;
-}
-.content .container a{
-    text-decoration: none;
-}
-.content .container button{
-    display: block;
-    width: 100px;
-    height: 30px;
-    font-size: 18px;
-    margin: 20px auto;
-    color: white;
-    background-color: purple;
-    cursor: pointer;
-}
-/*Filler content end*/
-/*Temoignages start*/
-.temoignages{
-    height: 300px;
-    background-color: darkblue;
-}
-/*Temoignage end*/
-/*Newsletter start*/
-.newsletter{
-    height: 270px;
-}
-.newsletter h3{
-    font-size: 36px;
-    text-align: center;
-    margin: 20px 0;
-}
-.newsletter_box{
-    height: 100px;
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-}
-.newsletter input{
-    margin-left: 15px;
-    height: 40px;
-    width: 80%;
-    max-width: 500px;
-    font-size: 20px;
-    padding: 0 5px;
-    border: 1px solid grey;
-}
-.newsletter button{
-    background-color: blueviolet;
-    color: white;
-    height: 42px;
-    padding: 5px;
-    width: 20%;
-    min-width: 100px;
-    font-size: 18px;
-    border: 1px solid grey;
-    margin-right: 15px;
-}
-/*Newsletter end*/
+/*title end*/
 /*Footer start*/
 footer{
     width: 100%;
-    background-color: rgb(104, 104, 255);
+    background-color: #2c2c2c;
+    color: whitesmoke;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -211,6 +96,10 @@ footer{
 }
 footer label, footer span{
     display: block;
+}
+footer a {
+    color: white;
+    text-decoration: none;
 }
 footer .social_block{
     width: 100%;
@@ -221,6 +110,7 @@ footer .social_block{
 footer .social_block svg{
     height: 50px;
     width: 50px;
+    fill: white;
 }
 /*Footer end*/
 @media (max-width:690px) {
@@ -247,13 +137,19 @@ footer .social_block svg{
         height: 100%;width: 100%;
     }
     .menu{
-        display: none;
         width: 100%;
         position: absolute;
         top: 90px;
         z-index: 2;
         text-transform: uppercase;
         height: 0;
+        overflow: hidden;
+        display: block;
+    }
+    .show{
+        /* display: block !important; */
+        height: 480px !important;
+        transition: height ease .5s;
     }
     header nav ul li{
         background-color: black;
@@ -265,27 +161,15 @@ footer .social_block svg{
         display: block;
         margin-right: 10px;
     }
-    /*Filler content start*/
-   .content .container{
-        width: 100%;
-        height: fit-content;
+    footer{
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 4rem;
     }
-    .content .container p{
-        max-height: none;
-    }
-    .flex:first-child{
-        flex-direction: column-reverse;
-    }
-    .flex:last-child{
-        flex-direction: column-reverse;
-    }
-    /*Filler content end*/
-    .newsletter h3{
-        font-size: 26px;
-    }
-}
-@media (max-width:400px) {
-    .newsletter input{
-        font-size: 16px;
+    footer .block{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
