@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Program</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <style>
         .presentation{
             height: 400px;
@@ -40,6 +40,10 @@
         }
         .tab_info[data-active="true"]{
             display: block !important;
+        }
+        button[data-btn-active="true"]{
+            background-color: white;
+            color: darkblue;
         }
         @media (max-width:600px) {
             .info{
@@ -95,7 +99,7 @@
         </div>
         <div class="info">
             <div class="tab">
-                <button>Présentation</button>
+                <button data-btn-active="true">Présentation</button>
                 <section class="tab_info" data-active="true">
                     Prez
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo officiis sapiente nulla ratione, unde assumenda esse tempore hic quos dolor?
@@ -196,13 +200,20 @@
             tab.addEventListener('click',(e)=>{
                 if(e.target.closest('button')){
                     const section = tab.querySelector('.tab_info');
+                    const button = tab.querySelector('button');
+                    //Delete previous active section
                     const activeSection = document.querySelector('[data-active="true"]');
-                    delete activeSection.dataset.active
+                    const activeBtn = document.querySelector('[data-btn-active="true"]');
+                    delete activeSection.dataset.active;
+                    delete activeBtn.dataBtn.active;
+                    //toggle show for each section
                     if(!section.dataset.active){
                         section.dataset.active = true;
+                        button.dataBtn.active = true;
                     }
                     else if(section.dataset.active = true){
-                        delete section.dataset.active
+                        delete section.dataset.active;
+                        delete button.dataBtn.active;
                     }
                 }
             })
