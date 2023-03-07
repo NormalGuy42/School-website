@@ -109,6 +109,10 @@ section .description{
     cursor: pointer;
     border-bottom: 4px solid darkblue;
 }
+.program_box a{
+    text-decoration: none;
+    color: inherit;
+}
 .program_box h2{
     letter-spacing: 1px;
     font-size: 30px;
