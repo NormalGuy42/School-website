@@ -13,13 +13,6 @@ body{
 }
 
 /*Header start*/
-.presentation{
-    height: 500px;
-    width: 100%;
-    background: url('../assets/students\ pic.png') no-repeat;
-    background-size: cover;
-   background-position: center;
-}
 /* header{
     height: 80px;
 } */
@@ -77,6 +70,7 @@ header nav ul li a{
 }
 svg.burger{height: 60px; width: 60px;display: none;cursor: pointer;}
 /*Header end*/
+/*Licence,Masters,formation start*/
 /*title start*/
 .title h1{
     font-size: 72px;
@@ -84,6 +78,47 @@ svg.burger{height: 60px; width: 60px;display: none;cursor: pointer;}
     margin: 30px 0;
 }
 /*title end*/
+/*p description start*/
+section .description{
+    padding: 20px 40px;
+    line-height: 28px;
+    font-size: 20px;
+    letter-spacing: 0.03rem;
+}
+/*p description end*/
+/*Programs start*/
+.showProgram{
+    display: block !important;
+}
+.programs{
+    margin: 100px 0 300px;
+}
+.programs ul{
+    list-style-type: none;
+}
+.programs li{
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+    max-width: 1200px;
+    min-width: 200px;
+    padding: 20px 10px 20px;
+    box-sizing: border-box;
+}
+.program_box{
+    cursor: pointer;
+    border-bottom: 4px solid darkblue;
+}
+.program_box h2{
+    letter-spacing: 1px;
+    font-size: 30px;
+    font-weight: normal;
+} 
+.program_description{
+    display: none;
+}
+/*Programs end*/
+/*Licence,Masters,formation end*/
 /*Footer start*/
 footer{
     width: 100%;
@@ -113,10 +148,7 @@ footer .social_block svg{
     fill: white;
 }
 /*Footer end*/
-@media (max-width:690px) {
-    .presentation{
-        background-position: unset;
-    }
+@media (max-width:700px) {
     header nav{
         background-color: #000000;
         display: flex;
@@ -161,6 +193,11 @@ footer .social_block svg{
         display: block;
         margin-right: 10px;
     }
+    /*Programs start*/
+    .program_box h2{
+        font-size: 28px;
+    }
+    /*Programs end*/
     footer{
         flex-direction: column;
         justify-content: center;

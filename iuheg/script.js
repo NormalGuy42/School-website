@@ -11,3 +11,15 @@ document.addEventListener('click',(e)=>{
         }
     }
 })
+
+/*Licence,Masters,Formation start*/
+const programs = document.querySelectorAll('.program_box');
+programs.forEach(program=>{
+    program.addEventListener('click',(e)=>{
+        if(e.target.closest('h2')){
+            const description = program.querySelector('.program_description');
+            description.classList.toggle('showProgram');
+        }
+    })
+})
+/*Licence,Masters,Formation end*/
