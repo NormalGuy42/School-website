@@ -29,6 +29,7 @@
             padding: 5px;
             color: white;
             background-color: darkblue;
+            cursor: pointer;
         }
         .tab_info{
             background-color: goldenrod;
@@ -101,9 +102,7 @@
             <div class="tab">
                 <button data-btn-active="true">Présentation</button>
                 <section class="tab_info" data-active="true">
-                    Prez
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo officiis sapiente nulla ratione, unde assumenda esse tempore hic quos dolor?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae fugiat nihil accusamus molestiae! Cupiditate aspernatur perferendis veritatis labore officia tempore.
+                    Presentation du programme
                 </section>
                 <!--Added this div here so that the absolutely positioned section doesn't overlap with the footer-->
                 <div class="space" style="height: 800px;"></div>
@@ -111,22 +110,19 @@
             <div class="tab">
                 <button>Structure du programme</button>
                 <section class="tab_info">
-                    Struct
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo officiis sapiente nulla ratione, unde assumenda esse tempore hic quos dolor?
+                    Structure du programme
                 </section>
             </div>
             <div class="tab">
                 <button>Admission</button>
                 <section class="tab_info">
-                    Admiss
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo officiis sapiente nulla ratione, unde assumenda esse tempore hic quos dolor?
+                    Admission à ce programme
                 </section>
             </div>
             <div class="tab">
                 <button>Frais de scolarité</button>
                 <section class="tab_info">
-                    Pay
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo officiis sapiente nulla ratione, unde assumenda esse tempore hic quos dolor?
+                    Frais de scolarité
                 </section>
             </div>
         </div>
@@ -200,20 +196,18 @@
             tab.addEventListener('click',(e)=>{
                 if(e.target.closest('button')){
                     const section = tab.querySelector('.tab_info');
-                    const button = tab.querySelector('button');
                     //Delete previous active section
                     const activeSection = document.querySelector('[data-active="true"]');
                     const activeBtn = document.querySelector('[data-btn-active="true"]');
                     delete activeSection.dataset.active;
-                    delete activeBtn.dataBtn.active;
+                    delete activeBtn.dataset.btnActive;
                     //toggle show for each section
                     if(!section.dataset.active){
                         section.dataset.active = true;
-                        button.dataBtn.active = true;
+                        section.previousElementSibling.dataset.btnActive = true;
                     }
                     else if(section.dataset.active = true){
                         delete section.dataset.active;
-                        delete button.dataBtn.active;
                     }
                 }
             })
