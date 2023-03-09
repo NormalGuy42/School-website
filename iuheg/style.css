@@ -84,6 +84,7 @@ section .description{
     line-height: 28px;
     font-size: 20px;
     letter-spacing: 0.03rem;
+    margin-bottom: 90px;
 }
 /*p description end*/
 /*Programs start*/
@@ -91,7 +92,7 @@ section .description{
     display: block !important;
 }
 .programs{
-    margin: 100px 0 300px;
+    margin: 20px 0 300px;
 }
 .programs ul{
     list-style-type: none;
@@ -136,9 +137,16 @@ footer{
 footer label, footer span{
     display: block;
 }
+footer h3{
+    font-size: 24px;
+}
 footer a {
     color: white;
+    font-size: 20px;
     text-decoration: none;
+}
+footer span{
+    font-size: 20px;
 }
 footer .social_block{
     width: 100%;

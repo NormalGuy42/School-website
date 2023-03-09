@@ -74,6 +74,13 @@
             text-align: center;
             padding: 30px 20px;
         }
+        .welcome h2{
+            font-size: 24px;
+        }
+        .welcome p{
+            letter-spacing: 1px;
+            font-size: 18px;
+        }
         /*Welcome end*/
         /*Navigation menu start*/
         .schools{
@@ -93,17 +100,45 @@
             box-shadow: var(--box-shadow);
             background-color: white;
             height: 280px;
+            cursor: pointer;
+            color: white;
         }
-        .schools .box div{
+        .schools .box img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        .schools .box .box_overlay{
+            height: 280px;
+            width: 320px;
+            position: relative;
+            top: -284px;
+        }
+        /*Box background color start*/
+        .box:nth-child(1) .box_overlay{background: linear-gradient(90deg,red,#ff000073)}
+        .box:nth-child(2) .box_overlay{background: linear-gradient(90deg,royalblue,#002bff38)}
+        .box:nth-child(3) .box_overlay{background: linear-gradient(90deg,#dda70f,#b3ad018f)}
+        /*Box background color end*/
+        .schools .box_info{
+            position: absolute;
+            opacity: 1;
+            width: 100%;
+        }
+        .box_info h3{
+            color: white;
+            margin: 20px auto;
             text-align: center;
-            
+            font-size: 24px;
         }
-        .schools .box div img{
-            height: 40px;
-            width: 40px;
+        .box_info ul{
+            list-style-type: none;
+            color: inherit;
+            margin-left: 20px;
         }
-        .schools p{
-            padding: 20px;
+        .box_info li{
+            color: white;
+            margin-bottom: 15px;
+            font-size: 20px;
         }
         /*Navigation menu end*/
         /*About us start*/
@@ -111,11 +146,16 @@
             height: fit-content;
             margin-top: 100px;
             padding: 30px 20px;
+            margin-bottom: 250px;
         }
-        .about_us h3{
-            margin-bottom: 20px;
+        .about_us h2{
+            margin-bottom: 10px;
         }
-
+        .about_us p{
+            letter-spacing: 1px;
+            line-height: 24px;
+            font-size: 18px;
+        }
         /*About us end*/
         /*Footer start*/
         footer{
@@ -194,39 +234,54 @@
                     Non magni iure voluptas labore a dolore consequuntur, amet nihil eum ut!</p>
             </div>
             <div class="schools">
-                <a href="Lycée-primaire/index.html" target="_blank">
-                    <div class="box">
-                        <div>
-                            <img src="assets/ecolebahkane.jpeg" alt="">
-                            <h3>Primaire-Lycée</h3>
-                        </div>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                        Deleniti laborum nihil suscipit exercitationem 
-                        commodi accusamus saepe fugiat impedit ipsum ex.</p>
+                <div class="box">
+                    <img src="assets/background_primary.jpeg" alt="">
+                    <div class="box_overlay">
+                        <a href="Lycée-primaire/index.html">
+                            <div class="box_info">
+                                <h3>Primaire-lycée</h3>
+                                <ul>
+                                    <li>Acceuil</li>
+                                    <li>Programmes</li>
+                                    <li>Inscription</li>
+                                    <li>Contact</li>
+                                </ul>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <a href="professionelles/index.html" target="_blank">
-                    <div class="box">
-                        <div>
-                            <img src="assets/ecolebahkane.jpeg" alt="">
-                            <h3>Ecoles Professionelles</h3>
+                </div>
+                <div class="box">
+                        <img src="assets/background_pro.jpeg" alt="">
+                        <div class="box_overlay">
+                            <a href="iuheg/formation.html">
+                            <div class="box_info">
+                                <h3>Formation professionelle</h3>
+                                <ul>
+                                    <li>Information</li>
+                                    <li>Inscription</li>
+                                    <li>Programmes</li>
+                                    <li>Contact</li>
+                                </ul>
+                            </div>
+                            </a>
                         </div>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                            Deleniti laborum nihil suscipit exercitationem 
-                            commodi accusamus saepe fugiat impedit ipsum ex.</p>
-                    </div>
-                </a>
-                <a href="iuheg/index.html" target="_blank">
-                    <div class="box">
-                        <div>
-                            <img src="assets/iuheg.jpeg" alt="">
-                            <h3>IUHEG</h3>
+                </div>
+                <div class="box">
+                        <img src="assets/background_uni.webp" alt="">
+                        <div class="box_overlay">
+                            <a href="iuheg/index.html">
+                            <div class="box_info">
+                                <h3>Université</h3>
+                                <ul>
+                                    <li>Accueil</li>
+                                    <li>Licence</li>
+                                    <li>Masters</li>
+                                    <li>Contact</li>
+                                </ul>
+                            </div>
+                            </a>
                         </div>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                            Deleniti laborum nihil suscipit exercitationem 
-                            commodi accusamus saepe fugiat impedit ipsum ex.</p>
-                    </div>
-                </a>
+                </div>
             </div>
         </div>
     </div>
@@ -246,7 +301,7 @@
         
     </section>
     <!--Main body end-->
-    <footer>
+    <!--<footer>
         <div class="block">
             <label>Liens utiles</label>
             <span><a>Ecoles</a></span>
@@ -268,7 +323,6 @@
         <div class="block">
             <label>Suivez-nous</label>
             <div class="social_links">
-                <!--Facebook-->
                 <a>
                     <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" role="img" class="">
                         <title>Facebook</title>
@@ -278,8 +332,6 @@
                         </path>
                     </svg>
                 </a>
-                <!--Facebook-->
-                <!--Instagram-->
                 <a>
                     <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" role="img" class="">
                         <title>Instagram</title><g stroke="none">
@@ -287,8 +339,6 @@
                         <path d="M16,9a7,7,0,1,0,7,7A7,7,0,0,0,16,9Zm0,12a5,5,0,1,1,5-5A5,5,0,0,1,16,21Z"></path>
                         <circle cx="23.5" cy="8.5" r="1.5"></circle></g></svg>
                 </a>
-                <!--Instagram-->
-                <!--Twitter-->
                 <a>
                     <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" role="img" 
                     class="Icon-c11n-8-62-4__sc-13llmml-0 hqxkCk">
@@ -301,8 +351,6 @@
                         </path>
                     </svg>
                 </a>
-                <!--Twitter-->
-                <!--Youtube-->
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <title>Youtube</title>
                     <path d="M23,9.71a8.5,8.5,0,0,0-.91-4.13,2.92,2.92,0,0,0-1.72-1A78.36,78.36,0,0,0,12,4.27a78.45,78.45,0,0,
@@ -311,10 +359,8 @@
                     1.53-.78,2.49,2.49,0,0,0,.61-1,10.58,10.58,0,0,0,.52-3.4C23,13.69,23,10.31,23,9.71ZM9.74,14.85V8.66l5.92,3.11C14,
                     12.69,11.81,13.73,9.74,14.85Z"/>
                 </svg>
-                <!--Youtube-->
             </div>
         </div>
-        
-    </footer>
+    </footer>-->
 </body>
 </html>
