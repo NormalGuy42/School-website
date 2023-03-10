@@ -26,10 +26,13 @@
             display: flex;
             align-items: center;
         }
-
-       
+        .stats label{
+            letter-spacing: 0.03rem;
+            font-weight: bold;
+            color: royalblue;
+            margin-bottom: 8px;
+        }
         /*Stats end*/
-        
         /*Filler content start*/
         .content{
             margin-top: 100px;
@@ -96,16 +99,107 @@
         /*Filler content end*/
         /*Temoignages start*/
         .temoignages{
-            height: 300px;
+            min-height: 300px;
             background-color: darkblue;
+            padding-top: 100px;
+        }
+        .temoignages .box{
+            width: 100%;
+            display: flex;
+            position: absolute;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            opacity: 0;
+            color: white;
+        }
+        .temoignages .box[data-active="true"]{
+            opacity: 1;
+        }
+        .temoignages .box img{
+            height: 100px;
+            width: 100px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            margin-top: 50px;
         }
         /*Temoignage end*/
+        /*Upcoming events start*/
+        .upcoming{
+            background-color: #020220;
+            padding-top: 80px;
+        }
+        .upcoming h2{
+            color: rgb(27,76,208);
+            font-size: 36px;
+            text-align: center;
+        }
+        .upcoming .box_container{
+            background-color: #020220;
+            display: grid;
+            grid-template-columns: repeat(auto-fit,250px);
+            gap: 100px;
+            justify-content: center;
+            padding: 50px 30px;
+        }
+        .upcoming .box{
+            display: flex;
+            flex-direction: column;
+            min-height: 350px;
+            background-color: #eee;
+        }
+        .upcoming .box:hover{
+            scale: 1.05;
+            transition: all .3s;
+        }
+        .upcoming .box a{
+            color: inherit;
+            text-decoration: none;
+        }
+        .upcoming .box img{
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+        .upcoming .card{
+            position: relative;
+            top: -30px;
+            background-color: blue;
+            color: white;
+            width: min-content;
+            padding: 12px;
+            text-align: center;
+        }
+        .upcoming .caption{
+            padding: 8px;
+        }
+        .upcoming .box p{
+            min-height: 60px;
+            display: table-cell;
+            letter-spacing: 0.05rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .upcoming .box .caption label{
+            margin-top: 10px;
+        }
+        /*Upcoming events end*/
         /*Newsletter start*/
         .newsletter{
-            height: 270px;
+            height: 500px;
+            max-width: 500px;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: cornflowerblue;
         }
         .newsletter h3{
-            font-size: 36px;
+            font-size: 26px;
             text-align: center;
             margin: 20px 0;
         }
@@ -113,29 +207,28 @@
             height: 100px;
             width: 100%;
             display: flex;
-            flex-wrap: nowrap;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
         .newsletter input{
-            margin-left: 15px;
             height: 40px;
             width: 80%;
-            max-width: 500px;
+            max-width: 300px;
             font-size: 20px;
             padding: 0 5px;
             border: 1px solid grey;
+            margin-bottom: 20px;
         }
         .newsletter button{
             background-color: blueviolet;
             color: white;
             height: 42px;
             padding: 5px;
-            width: 20%;
+            width: 312px;
             min-width: 100px;
             font-size: 18px;
             border: 1px solid grey;
-            margin-right: 15px;
         }
         /*Newsletter end*/
         @media (max-width:1120px) {
@@ -183,7 +276,8 @@
             }
             .flex:last-child .container:first-child img{
                 position: relative;
-                top: -2px;
+                /* top: -2px; */
+                top: 4px;
             }
             /*Second content section end*/
             /*Filler content end*/
@@ -287,9 +381,71 @@
         </div>
         <!--Director word end-->
    </div>
+   <div class="temoignages">
+        <div class="box" data-active="true">
+            <h3>"Mon expérience à l'IUHEG a été merveilleuse. Les professeurs étaient 
+                super et les classes sont confortables"</h3>
+            <img src="../assets/students pic.png" alt="">
+            <label for="">Raby</label>
+        </div>
+        <div class="box">
+            <h3></h3>
+            <img src="" alt=""><label for=""></label></div>
+        <div class="box">
+            <h3></h3>
+            <img src="" alt=""><label for=""></label></div>
+   </div>
+   <div class="upcoming">
+        <h2>Evenements à venir</h2>
+        <div class="box_container">
+            <div class="box">
+                <a href="event.html">
+                    <img src="../assets/student_life.webp">
+                    <div class="card">
+                        <h3>10</h3>
+                        <span>AVR</span>
+                    </div>
+                    <div class="caption">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, fugit.
+                        </p>
+                        <label for="">12h</label>
+                    </div>
+                </a>
+            </div>
+            <div class="box">
+                <img src="../assets/student_life.webp">
+                <div class="card">
+                    <h3>10</h3>
+                    <span>AVR</span>
+                </div>
+                <div class="caption">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, fugit.
+                    </p>
+                    <label for="">12h</label>
+                </div>
+            </div>
+            <div class="box">
+                <img src="../assets/student_life.webp">
+                <div class="card">
+                    <h3>10</h3>
+                    <span>AVR</span>
+                </div>
+                <div class="caption">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, fugit.
+                    </p>
+                    <label for="">12h</label>
+                </div>
+            </div>
+        </div>
+   </div>
    <!--Newsletter start-->
    <div class="newsletter">
-        <h3>Inscrivez vous à notre newsletter</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="80" width="80"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 
+        64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+        <h3>S'inscrire à notre newsletter</h3>
         <div class="newsletter_box">
             <input type="email" placeholder="Mon email">
             <button>S'incrire</button>

@@ -68,7 +68,7 @@ header nav ul li a{
     display: flex;
     align-items: center;
 }
-svg.burger{height: 60px; width: 60px;display: none;cursor: pointer;}
+svg.burger{height: 75px; width: 75px;display: none;cursor: pointer;}
 /*Header end*/
 /*Licence,Masters,formation start*/
 /*title start*/
@@ -167,12 +167,13 @@ footer .social_block svg{
         width: 100%;
         justify-content: space-between;
         align-items: center;
+        padding: 10px 0;
     }
     .logo{
-        height: 80px;
-        width: 80px;
+        height: 90px;
+        width: 90px;
         position: relative;
-        left: 28px;
+        left: 45px;
         cursor: pointer;
         background-color: white;
         border-radius: 50%;
@@ -183,7 +184,7 @@ footer .social_block svg{
     .menu{
         width: 100%;
         position: absolute;
-        top: 90px;
+        top: 110px;
         z-index: 2;
         text-transform: uppercase;
         height: 0;
@@ -203,7 +204,7 @@ footer .social_block svg{
     }
     svg.burger{
         display: block;
-        margin-right: 10px;
+        margin-right: 20px;
     }
     /*Programs start*/
     .program_box h2{
