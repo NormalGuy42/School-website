@@ -24,14 +24,14 @@
         }
         /*header start*/
         .presentation{
-            height: 120vh;
+            height: 130vh;
             width: 100%;
             background: url('assets/background_img1.jpeg') no-repeat;
             background-position: center;
             background-size: cover ;
         }
         .overlay{
-            height: 120vh;
+            height: 130vh;
             min-height: fit-content;
             width: 100%;
             background-color: #01509d;
@@ -83,14 +83,28 @@
         }
         /*Welcome end*/
         /*Navigation menu start*/
+        .schools_container{
+            background-color: rgb(255, 255, 255);
+            box-shadow: rgb(0 0 0 / 30%) 0px 2px 4px 0px;
+            border-radius: 8px;
+            width: 85%;
+            margin: 0 auto;
+            padding: 20px 0 30px;
+        }
+        .schools_container h2{
+            text-align: center;
+            color: royalblue;
+            text-transform: uppercase;
+            font-weight: bolder;
+        }
         .schools{
-            width: 95%;
+            width: 90%;
             display: grid;
             grid-template-columns: repeat(auto-fit,320px);
             justify-content: space-evenly;
             /* gap: 4.5rem; */
             margin: 0 auto;
-            margin-top: 50px;
+            margin-top: 20px;
         }
         .schools a{
             text-decoration: none;
@@ -186,12 +200,15 @@
         }
 
         /*Footer end*/
-        @media (max-width:1110px) {
+        @media (max-width: 1300px) {
             .presentation{
-                height: 1500px;
+                height: 1600px;
             }
             .overlay{
-                height: 1500px;
+                height: 1600px;
+            }
+            .schools_container{
+                width: 425px;
             }
             .schools{
                 grid-template-columns: repeat(1,320px);
@@ -200,12 +217,6 @@
             }
         }
         @media (max-width:800px) {
-            header ul{
-                display: none;
-            }
-            svg.burger{
-                display: block;
-            }
             footer{
                 flex-wrap: nowrap;
                 flex-direction: column;
@@ -216,6 +227,17 @@
             }
             footer .social_links{
                 justify-content: center;
+            }
+        }
+        @media (max-width:450px) {
+            .schools_container{
+                width: 90%;
+            }
+            .schools{
+                grid-template-columns: repeat(auto-fit,280px);
+            }
+            .schools .box .box_overlay{
+                width: 280px;
             }
         }
     </style>
@@ -235,54 +257,57 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Non magni iure voluptas labore a dolore consequuntur, amet nihil eum ut!</p>
             </div>
-            <div class="schools">
-                <div class="box">
-                    <img src="assets/background_primary.jpeg" alt="">
-                    <div class="box_overlay">
-                        <a href="Lycée-primaire/index.html">
-                            <div class="box_info">
-                                <h3>Primaire-lycée</h3>
-                                <ul>
-                                    <li>Acceuil</li>
-                                    <li>Programmes</li>
-                                    <li>Inscription</li>
-                                    <li>Contact</li>
-                                </ul>
-                            </div>
-                        </a>
+            <div class="schools_container">
+                <h2>Explorez nos écoles</h2>
+                <div class="schools">
+                    <div class="box">
+                        <img src="assets/background_primary.jpeg" alt="">
+                        <div class="box_overlay">
+                            <a href="Lycée-primaire/index.html">
+                                <div class="box_info">
+                                    <h3>Primaire-lycée</h3>
+                                    <ul>
+                                        <li>Acceuil</li>
+                                        <li>Programmes</li>
+                                        <li>Inscription</li>
+                                        <li>Contact</li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="box">
-                        <img src="assets/background_pro.jpeg" alt="">
-                        <div class="box_overlay">
-                            <a href="iuheg/formation.html">
-                            <div class="box_info">
-                                <h3>Formation professionelle</h3>
-                                <ul>
-                                    <li>Information</li>
-                                    <li>Inscription</li>
-                                    <li>Programmes</li>
-                                    <li>Contact</li>
-                                </ul>
+                    <div class="box">
+                            <img src="assets/background_pro.jpeg" alt="">
+                            <div class="box_overlay">
+                                <a href="iuheg/formation.html">
+                                <div class="box_info">
+                                    <h3>Formation professionelle</h3>
+                                    <ul>
+                                        <li>Information</li>
+                                        <li>Inscription</li>
+                                        <li>Programmes</li>
+                                        <li>Contact</li>
+                                    </ul>
+                                </div>
+                                </a>
                             </div>
-                            </a>
-                        </div>
-                </div>
-                <div class="box">
-                        <img src="assets/background_uni.webp" alt="">
-                        <div class="box_overlay">
-                            <a href="iuheg/index.html">
-                            <div class="box_info">
-                                <h3>Université</h3>
-                                <ul>
-                                    <li>Accueil</li>
-                                    <li>Licence</li>
-                                    <li>Masters</li>
-                                    <li>Contact</li>
-                                </ul>
+                    </div>
+                    <div class="box">
+                            <img src="assets/background_uni.webp" alt="">
+                            <div class="box_overlay">
+                                <a href="iuheg/index.html">
+                                <div class="box_info">
+                                    <h3>Université</h3>
+                                    <ul>
+                                        <li>Accueil</li>
+                                        <li>Licence</li>
+                                        <li>Masters</li>
+                                        <li>Contact</li>
+                                    </ul>
+                                </div>
+                                </a>
                             </div>
-                            </a>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
