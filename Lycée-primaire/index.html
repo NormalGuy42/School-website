@@ -14,9 +14,45 @@
             background-size: cover;
             background-position: top center;
         }
+        .presentation .card{
+            height: 400px;
+            max-width: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(78, 75, 75, 0.8);
+            margin: 30px auto;
+            width: 70%;
+            border: 5px solid white;
+            color: white;
+            text-align: center;
+        }
+        .presentation h2{
+            font-size: 40px;
+        }
+        .content{
+            text-align: center;
+            padding: 20px;
+        }
+        .content p{
+            line-height: 22px;
+            letter-spacing: 0.03rem;
+            font-size: 18px;
+        }
+        footer{
+            text-align: center;
+        } 
         @media (max-width:600px) {
             .presentation{
                 background-position: center;
+                height: 450px;
+            }
+            .presentation .card{
+                height: 250px;
+                width: 80%;
+            }
+            .presentation h2{
+                font-size: 30px;
             }
         }
     </style>
@@ -28,7 +64,7 @@
             <header>
                 <nav>
                     <div class="logo">
-                        <img src="../assets/ecolebahkane.jpeg" alt="school logo">
+                        <img src="../assets/bah_kane_circle.png" alt="school logo">
                     </div>
                     <ul class="menu">
                         <li><a href="#">Acceuil</a></li>
@@ -53,17 +89,22 @@
                     </svg>
                 </nav>
             </header>
+            <div class="card">
+                <h2>"La rigueur dans l'excellence"</h2>
+            </div>
         </div>
     </div>
     <section class="main_content">
-        <div class="content_wrapper">
-
+        <div class="content">
+            <h1>NOTRE MISSION</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                Atque amet voluptate, aspernatur dolor ullam quia eligendi possimus vitae ducimus repellat.</p>
         </div>
     </section>
     <!--Footer start-->
     <footer>
         <div class="block">
-            <img src="../assets/ecolebahkane.jpeg"> 
+            <img src="../assets/bah_kane_circle.png"> 
             <div class="social_block">
                 <!--Facebook-->
                 <div class="svg_container">
