@@ -8,12 +8,57 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../style.css">
     <style>
+        /*Header start*/
         .presentation{
             height: 600px;
-            background: url('../assets/primary_students.jpeg') no-repeat;
-            background-size: cover;
-            background-position: top center;
+            animation: slide 15s infinite;
         }
+        /*image carousel start*/
+        .carousel_container{
+            height: 100%;
+            overflow: hidden;
+        }
+        .carousel{
+            height: 100%;
+            width: 400%;
+            position: relative;
+            left: 0;
+            animation: slide 20s infinite;
+        }
+        .carousel img{
+            height: 100%;
+            width: 25%;
+            object-fit: cover;
+            object-position: top right;
+            float: left;
+        }
+        @keyframes slide {
+            0%{
+                left: 0;
+            }
+            20%{
+                left: 0;
+            }
+            30%{
+                left: -100%;
+            }
+            50%{
+                left: -100%;
+            }
+            60%{
+                left: -200%;
+            }
+            80%{
+                left: -200%;
+            }
+            90%{
+                left: -300%;
+            }
+            100%{
+                left: -300%;
+            }
+        }
+        /*Image carousel end*/
         .presentation .card{
             height: 400px;
             max-width: 1000px;
@@ -30,6 +75,11 @@
         .presentation h2{
             font-size: 40px;
         }
+        .header_content{
+            position: relative;
+            top: -600px;
+        }
+        /*Header end*/
         .content{
             text-align: center;
             padding: 20px;
@@ -42,17 +92,23 @@
         footer{
             text-align: center;
         } 
-        @media (max-width:600px) {
+        footer .block span{
+            margin-bottom: 5px;
+        }
+        @media (max-width:800px) {
             .presentation{
                 background-position: center;
-                height: 450px;
+                height: 500px;
             }
             .presentation .card{
-                height: 250px;
+                height: 200px;
                 width: 80%;
             }
             .presentation h2{
                 font-size: 30px;
+            }
+            .header_content{
+                top: -500px;
             }
         }
     </style>
@@ -60,6 +116,14 @@
 </head>
 <body>
     <div class="presentation">
+        <div class="carousel_container">
+            <div class="carousel">
+                <img src="../assets/primary_students.jpeg" alt="">
+                <img src="../assets/primary_students(2).jpeg" alt="">
+                <img src="../assets/primary_students(3).jpeg" alt="">
+                <img src="../assets/primary_students.jpeg" alt="">
+            </div>
+        </div>
         <div class="header_content">
             <header>
                 <nav>
