@@ -106,12 +106,27 @@
             overflow: hidden;
         }
         .temoignages_container{
+            position: relative;
+            left: 0;
             height: 100%;
             background-color: darkblue;
             display: flex;
-            animation: carousel 4s linear infinite;
+            animation: slide 20s infinite;
             padding-top: 100px;
-            width: 300vw;
+            overflow: hidden;
+            width: 400%;
+        }
+        @keyframes slide {
+            0%{
+                left: 0;
+            }
+            33%{
+                left: -100%;
+            }
+            66%{
+                left: -200%;
+            }
+            100%{left: -300%;}
         }
         .temoignages .box{
             width: 100vw;
@@ -122,13 +137,6 @@
             text-align: center;
             color: white;
             padding: 0 20px;
-        }
-        @keyframes carousel 
-        {
-            100%
-            {
-                transform: translate(-100vw);
-            }
         }
         .temoignages .box img{
             height: 100px;
@@ -523,7 +531,7 @@
    </div>
    <div class="temoignages">
         <div class="temoignages_container">
-            <div class="box">
+            <div class="box" >
                 <h3>"Mon expérience à l'IUHEG a été merveilleuse. Les professeurs étaient 
                     super et les classes sont confortables"</h3>
                 <img src="../assets/students pic.png" alt="">
@@ -538,6 +546,12 @@
                 <h3>"Les classes sont climatisées et le wifi marche très bien"</h3>
                 <img src="../assets/students pic.png" alt="">
                 <label for="">Arthur</label>
+            </div>
+            <div class="box" >
+                <h3>"Mon expérience à l'IUHEG a été merveilleuse. Les professeurs étaient 
+                    super et les classes sont confortables"</h3>
+                <img src="../assets/students pic.png" alt="">
+                <label for="">Raby</label>
             </div>
         </div>
    </div>
@@ -706,7 +720,6 @@
    </footer>
    <!--Footer end-->
    <script defer>
-
    </script>
 </body>
 </html>
