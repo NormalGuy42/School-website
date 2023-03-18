@@ -27,6 +27,9 @@ header .logo img{
     width: 100%;
     object-fit: cover;
 }
+.burger{
+    display: none;
+}
 /*Header end*/
 /*Sidebar start*/
 .sidebar{
@@ -41,7 +44,7 @@ header .logo img{
     padding: 0;
 }
 .sidebar li{
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     cursor: pointer;
     font-weight: bold;
 }
@@ -66,7 +69,26 @@ header .logo img{
 .showSection{
     display: block !important;
 }
+.showSidebar{
+    display: block !important;
+}
 .rotate_svg{
     transform: rotate(-180deg) !important;
 }
 /*Sidebar end*/
+@media (max-width:800px) {
+    .burger{
+        display: block;
+        height: 80px;
+        width: 80px;
+        fill: black;
+        position: absolute;
+        left: 30px;
+        top: 12px;
+        cursor: pointer;
+    }
+    .sidebar{
+        display: none;
+        width: 270px;
+    }
+}
