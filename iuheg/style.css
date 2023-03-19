@@ -193,11 +193,11 @@ footer .social_block svg{
         height: 0;
         overflow: hidden;
         display: block;
+        transition: height ease .5s;
     }
     .show{
         /* display: block !important; */
         height: 480px !important;
-        transition: height ease .5s;
     }
     header nav ul li{
         background-color: black;

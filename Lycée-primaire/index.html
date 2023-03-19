@@ -90,6 +90,7 @@
             line-height: 22px;
             letter-spacing: 0.03rem;
             font-size: 18px;
+            padding: 8px;
         }
         /*Content grid start*/
         .content_grid{
@@ -117,18 +118,14 @@
         /*Content grid*/
         .content .circular img{
             border-radius: 50%;
-            width: 30%;
-            max-width: 500px;
-            min-width: 200px;
-            height: 30%;
-            max-height: 500px;
-            min-height: 200px;
+            width: 320px;
+            height: 320px;
             object-fit: cover;
             position: relative;
             display: block;
         }
         .content .circular img:nth-child(1){left: 20%;}
-        .content .circular img:nth-child(2){left: 70%;}
+        .content .circular img:nth-child(2){left: 50%;}
         .content .circular img:nth-child(3){left: 30%;}
         /*Content end*/
         @media (max-width:1220px) {
@@ -156,15 +153,19 @@
                 grid-template-columns: repeat(auto-fit,280px);
             }
             /*Images*/
-            .content img:nth-child(1){left: 10%;}
-            .content img:nth-child(2){left: 40%;}
-            .content img:nth-child(3){left: 20%;}
+            .content .circular img{
+                width: 260px;
+                height: 260px;
+            }
+            .content .circular img:nth-child(1){left: 10%;}
+            .content .circular img:nth-child(2){left: 36%;}
+            .content .circular img:nth-child(3){left: 20%;}
         }
-        @media (max-width:400px) {
-            .content{padding: 15px;}
-            .content img:nth-child(1){left: 20px;}
-            .content img:nth-child(2){left: 60px;}
-            .content img:nth-child(3){left: 20px;}
+        @media (max-width:420px) {
+            .content{padding: 15px 0;}
+            .content .circular img:nth-child(1){left: 10px;}
+            .content .circular img:nth-child(2){left: 50px;}
+            .content .circular img:nth-child(3){left: 30px;}
         }
     </style>
     <script src="script.js" defer></script>
@@ -183,7 +184,9 @@
             <header>
                 <nav>
                     <div class="logo">
-                        <img src="../assets/bah_kane_circle.png" alt="school logo">
+                        <a href="index.html">
+                            <img src="../assets/bah_kane_circle.png" alt="school logo">
+                        </a>
                     </div>
                     <ul class="menu">
                         <li><a href="index.html">Acceuil</a></li>
@@ -218,7 +221,10 @@
         <div class="content">
             <h1>NOTRE MISSION</h1>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Atque amet voluptate, aspernatur dolor ullam quia eligendi possimus vitae ducimus repellat.</p>
+                Atque amet voluptate, aspernatur dolor ullam quia eligendi possimus vitae ducimus repellat.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa voluptatum beatae minus similique 
+                dolores quaerat necessitatibus? Architecto voluptatum accusamus quaerat. Iste repellat atque ut consequuntur, 
+                nisi qui vel sunt quibusdam?</p>
         </div>
         <div class="content">
             <h1>NOS ATOUTS</h1>
@@ -273,22 +279,19 @@
             </div>
         </div>
         <div class="content">
-            <h1>Mot de la fondation</h1>
-            <p class="organisation">
-            Chers visiteurs, chers parents, chers élèves <br>
-            <br>
-            Dans un environnement économique national et international en perpétuel changement, avec une compétition de plus en plus vive, les entreprises performantes font la différence
-            par la qualité des managers qui les dirigent.A travers ce nouveau site internet de l’école Bah-Kane, nous avons le plaisir de vous présenter notre établissement scolaire. <br><br>
-            Les écoles BAH-KANE sont le fruit de l’amitié et de de la collaboration entre deux amis : 
-            Mr Bah Diouma et Mr Kane Ibrahima, d’où le choix du nom BAH-KANE: symbole d’amitié, de courage de persévérance et de confiance en soi« LES ÉCOLES BAH-KANE» est une école d’exigence 
-            et de bienveillance,dans laquelle notre équipe pédagogique et éducative, développe en lien avec les parents un programme bilingue: Français et Anglais, appuyé par L’informatique et l’éveil de l’esprit par l’art plastique, le théâtre et la musique.
-            La découverte des religions du monde et la formation à la culture islamique permettent de modeler les consciences et consolider la spiritualité dans un monde en perte de repaires. <br><br>
-            Notre méthode de formation s’appuie sur des approches de la pédagogie active qui met l’élève au centre de l’apprentissage avec une ouverture sur les sur les nouvelles technologies.
-            BAH-KANE est une école de l’équilibre qui accueille, éduque, éveille,transmet, accompagne et fait grandir dans les bonnes traditions les élèves qui nous sont confiés. Notre slogan : la rigueur dans l’excellence, inscrit chacun année sa marque dans le paysage scolaire de notre pays.N’hésitez donc pas à naviguer sur les différentes pages du site pour y découvrir 
-            les nombreuses informations sur notre Etablissement et sur les équipes qui portent cette ambitieuse mission que celle de former les esprits et les cœurs.
-
-            Les Fondateurs BAH-KANE
-            </p>
+            <div class="flex">
+                <div class="box">
+                    <img src="" alt="">
+                </div>
+                <div class="box"></div>
+            </div>
+        </div>
+         <div class="content">
+            <div class="circular">
+                <img src="../assets/content_1.jpeg" alt="">
+                <img src="../assets/content_2.jpeg" alt="">
+                <img src="../assets/content_3.jpeg" alt="">
+            </div>
         </div>
         <div class="contact_content">
             <h1>Contactez-nous</h1>
@@ -305,11 +308,6 @@
             </div>
 
         </div>
-        <!-- <div class="content">
-            <img src="../assets/content_1.jpeg" alt="">
-            <img src="../assets/content_2.jpeg" alt="">
-            <img src="../assets/content_3.jpeg" alt="">
-        </div> -->
     </section>
     <!--Footer start-->
     <footer>

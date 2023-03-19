@@ -86,7 +86,7 @@
             background-color: rgb(255, 255, 255);
             box-shadow: rgb(0 0 0 / 30%) 0px 2px 4px 0px;
             border-radius: 8px;
-            width: 85%;
+            width: 80%;
             margin: 0 auto;
             padding: 20px 0 30px;
         }
@@ -97,7 +97,7 @@
             font-weight: bolder;
         }
         .schools{
-            width: 90%;
+            width: 100%;
             display: grid;
             grid-template-columns: repeat(auto-fit,320px);
             justify-content: space-evenly;
@@ -107,7 +107,7 @@
         }
         .schools a{
             text-decoration: none;
-            color: black;
+            color: inherit;
             display: block;
             height: 100%;
         }
@@ -162,6 +162,9 @@
             margin-top: 100px;
             padding: 30px 20px;
             margin-bottom: 250px;
+        }
+        .about_us .container{
+            margin-bottom: 80px;
         }
         .about_us h2{
             margin-bottom: 10px;
@@ -230,10 +233,15 @@
         }
         @media (max-width:450px) {
             .schools_container{
-                width: 90%;
+                width: 315px;
+                border-radius: 5px;
+            }
+            .schools_container h2{
+                text-transform: capitalize;
             }
             .schools{
                 grid-template-columns: repeat(auto-fit,280px);
+                gap: 25px;
             }
             .schools .box .box_overlay{
                 width: 280px;
@@ -262,17 +270,18 @@
                     <div class="box">
                         <img src="assets/background_primary.jpeg" alt="">
                         <div class="box_overlay">
-                            <a href="Lycée-primaire/index.html">
-                                <div class="box_info">
+                            <div class="box_info">
+                                <a href="Lycée-primaire/index.html">
                                     <h3>Primaire-lycée</h3>
-                                    <ul>
-                                        <li>Acceuil</li>
-                                        <li>Programmes</li>
-                                        <li>Inscription</li>
-                                        <li>Contact</li>
-                                    </ul>
-                                </div>
-                            </a>
+                                </a>
+                                <ul>
+                                    <li><a href="Lycée-primaire/index.html">Acceuil</a></li>
+                                    <li><a href="Lycée-primaire/program.html">Programmes</a></li>
+                                    <li><a href="Lycée-primaire/about.html">Inscription</a></li>
+                                    <li><a href="Lycée-primaire/contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                            <a href="Lycée-primaire/index.html"></a>
                         </div>
                     </div>
                     <div class="box">
@@ -294,17 +303,18 @@
                     <div class="box">
                             <img src="assets/background_uni.webp" alt="">
                             <div class="box_overlay">
-                                <a href="iuheg/index.html">
                                 <div class="box_info">
-                                    <h3>Université</h3>
+                                    <a href="iuheg/index.html">
+                                        <h3>Université</h3>
+                                    </a>
                                     <ul>
-                                        <li>Accueil</li>
-                                        <li>Licence</li>
-                                        <li>Masters</li>
-                                        <li>Contact</li>
+                                        <li><a href="iuheg/index.html">Accueil</a></li>
+                                        <li><a href="iuheg/licence.html">Licence</a></li>
+                                        <li><a href="iuheg/masters.html">Masters</a></li>
+                                        <li><a href="iuheg/contact.html">Contact</a></li>
                                     </ul>
                                 </div>
-                                </a>
+                                <a href="iuheg/index.html"></a>
                             </div>
                     </div>
                 </div>
@@ -315,12 +325,21 @@
     <section class="main_body">
         <div class="about_us">
             <div class="container">
-                <h2>A propos de nous</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nostrum culpa rerum repellendus animi id neque 
-                    tempora dolore omnis, adipisci voluptas eveniet vitae reiciendis veritatis perspiciatis est? 
-                    Veniam, soluta sint.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nostrum culpa rerum repellendus animi id neque 
-                    tempora dolore omnis, adipisci voluptas eveniet vitae reiciendis veritatis perspiciatis est? 
-                    Veniam, soluta sint.
+                <h2>Mot de la fondation</h2>
+                <p>
+                Chers visiteurs, chers parents, chers élèves <br>
+                <br>
+                Dans un environnement économique national et international en perpétuel changement, avec une compétition de plus en plus vive, les entreprises performantes font la différence
+                par la qualité des managers qui les dirigent.A travers ce nouveau site internet de l’école Bah-Kane, nous avons le plaisir de vous présenter notre établissement scolaire. <br><br>
+                Les écoles BAH-KANE sont le fruit de l’amitié et de de la collaboration entre deux amis : 
+                Mr Bah Diouma et Mr Kane Ibrahima, d’où le choix du nom BAH-KANE: symbole d’amitié, de courage de persévérance et de confiance en soi« LES ÉCOLES BAH-KANE» est une école d’exigence 
+                et de bienveillance,dans laquelle notre équipe pédagogique et éducative, développe en lien avec les parents un programme bilingue: Français et Anglais, appuyé par L’informatique et l’éveil de l’esprit par l’art plastique, le théâtre et la musique.
+                La découverte des religions du monde et la formation à la culture islamique permettent de modeler les consciences et consolider la spiritualité dans un monde en perte de repaires. <br><br>
+                Notre méthode de formation s’appuie sur des approches de la pédagogie active qui met l’élève au centre de l’apprentissage avec une ouverture sur les sur les nouvelles technologies.
+                BAH-KANE est une école de l’équilibre qui accueille, éduque, éveille,transmet, accompagne et fait grandir dans les bonnes traditions les élèves qui nous sont confiés. Notre slogan : la rigueur dans l’excellence, inscrit chacun année sa marque dans le paysage scolaire de notre pays.N’hésitez donc pas à naviguer sur les différentes pages du site pour y découvrir 
+                les nombreuses informations sur notre Etablissement et sur les équipes qui portent cette ambitieuse mission que celle de former les esprits et les cœurs. <br><br>
+    
+                Les Fondateurs BAH-KANE
                 </p>
             </div>
         </div>

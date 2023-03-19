@@ -24,19 +24,22 @@
         .info{
             display: flex;
             width: 100%;
+            justify-content: center;
         }
         .tab button{
-            width: 170px;
-            padding: 5px;
+            width: 220px;
+            padding: 10px;
             color: white;
             background-color: darkblue;
             cursor: pointer;
+            font-size: 18px;
         }
         .tab_info{
             display: none;
             position: absolute;
             left: 0;
             padding: 32px;
+            width: 58%;
         }
         .tab_info[data-active="true"]{
             display: block !important;
@@ -45,13 +48,26 @@
             background-color: white;
             color: darkblue;
         }
+        /*Collapsable section start*/
+        .tab_info h2{
+            margin: 12px;
+            color: red;
+            text-decoration: underline;
+        }
+        .tab_info ul{
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        /*Collapsable section end*/
         .submit_application{
             display: flex;
             justify-content: center;
             padding: 15px;
-            position: sticky;
-            top: 30px;
-            /* background-color: #0202a9; */
+            position: absolute;
+            top: 600px;
+            right: 0;
+            width: 320px;
+            background-color: #0202a9;
         }
         .submit_application button{
             padding: 10px;
@@ -61,7 +77,7 @@
             font-size: 18px;
             cursor: pointer;
         }
-        @media (max-width:700px) {
+        @media (max-width:900px) {
             .info{
                 flex-direction: column;
                 text-align: center;
@@ -73,12 +89,21 @@
             .tab_info{
                 position: unset;
                 text-align: start;
+                width: 100%;
+                box-sizing: border-box;
             }
             .submit_application{
                 position: sticky;
                 bottom: 0 ;
                 background-color: white;
+                width: 100%;
+                box-sizing: border-box;
             }
+            /*Collapsable section start*/
+            .tab_info li{
+                margin-bottom: 7px;
+            }
+            /*Collapsable section end*/
         }
     </style>
 </head>
@@ -86,9 +111,7 @@
     <div class="presentation">
         <header>
             <nav>
-                <div class="logo_container">
                 <div class="logo"><a href="index.html"><img src="../assets/iuheg-transparent.png"></a></div>
-                </div>
                 <ul class="menu">
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="propos.html">A propos</a></li>
@@ -145,13 +168,14 @@
                 <div class="tab">
                     <button>Admission</button>
                     <section class="tab_info">
-                        <h2>Admission</h2>
+                        <h2>CONDITIONS D'ADMISSION</h2>
+
                     </section>
                 </div>
                 <div class="tab">
                     <button>Frais de scolarité</button>
                     <section class="tab_info">
-                        <h2>Scoalarité</h2>
+                        <h2>Scolarité</h2>
                     </section>
                 </div>
             </div>
