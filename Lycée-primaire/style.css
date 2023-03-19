@@ -54,17 +54,40 @@ header nav{
     text-decoration: underline;
 }
 .burger{
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
     display: none;
     cursor: pointer;
 }
 /*header end*/
-/*Title*/
+/*Title start*/
 .title{
     font-size: 36px;
+    margin: 20px 0 20px;
+    color: #0505b3;
+    text-align: center;
 } 
-/*Title*/
+.underline{
+    height: 4px;
+    width: 50px;
+    margin: 0 auto;
+    background-color: #0505b3;
+    position: relative;
+    top: -14px;
+}
+/*Title end*/
+/*Content start*/
+.content{
+    text-align: center;
+    padding: 20px;
+}
+.content p{
+    line-height: 22px;
+    letter-spacing: 0.03rem;
+    font-size: 18px;
+    padding: 8px;
+}
+/*Content end*/
 /*Contact start*/
 .contact_content{
     background-color: #eee;
@@ -176,6 +199,7 @@ footer svg{
         background-color: #01509d;
         width: 100%;
         transition: all .5s;
+        z-index: 3;
     }
     .menu li{
         margin-top: 30px ;
