@@ -70,7 +70,7 @@
             text-align: center;
         }
         .presentation h2{
-            font-size: 40px;
+            font-size: 65px;
         }
         .header_content{
             position: relative;
@@ -85,6 +85,15 @@
         .content h1{
             margin: 10px 0 20px;
             font-size: 28px;
+            color: #0505b3;
+        }
+        .content .underline{
+            height: 4px;
+            width: 50px;
+            margin: 0 auto;
+            background-color: #0505b3;
+            position: relative;
+            top: -14px;
         }
         .content p{
             line-height: 22px;
@@ -110,12 +119,68 @@
             height: 80px;
             width: 80px;
         }
-        /*Organitsation*/
-        p.organisation{
-            text-align: start;
+        /*Content grid end*/
+        /*Programmes start*/
+        .program_grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,300px);
+            justify-content: space-around;
+            margin: 40px auto;
+            gap: 40px;
+        }
+        .program_box{
+            height: 360px;
+            background-color: #1e70b9d9;
+            color: white;
+        }
+        .program_box img{
+            height: 100px;
+            width: 100px;
+            object-fit: contain;
+        }
+        .program_box p{
+            max-height: 122px;
+            overflow: hidden;
+            text-align: center !important;
+        }
+        .program_box a{
+            text-decoration: none;
+        }
+        .program_box button{
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            font-size: 18px;
+            width: max-content;
+            margin: 0 auto;
+            position: relative;
+            top: 32px;
+        }
+        /*Programmes end*/
+        /*Vie etudiante start*/
+        .flex{
+            display: flex;
+            height: fit-content;
+            flex-direction: row-reverse;
+            padding-bottom: 100px;
+            background-color: #01509d;
+            color: white;
+        }
+        .flex .box{
+            width: 50%;
+        }
+        .flex .box:last-child{
             padding: 20px;
-        } 
-        /*Content grid*/
+            box-sizing: border-box;
+        }
+        .flex h2{
+            margin: 20px 0;
+        }
+        .flex img{
+            width: 100%;
+            object-fit: cover;
+        }
+        /*Vie etudiante end*/
         .content .circular img{
             border-radius: 50%;
             width: 320px;
@@ -144,13 +209,26 @@
                 width: 100%;
             }
             .presentation h2{
-                font-size: 30px;
+                font-size: 42px;
             }
             .header_content{
                 top: -500px;
             }
+            .content p{
+                text-align: start;
+            }
             .content_grid{
                 grid-template-columns: repeat(auto-fit,280px);
+            }
+            /*Flex*/
+            .flex{
+                flex-direction: column;
+            }
+            .flex .box{
+                width: 100%;
+            }
+            .flex img{
+                width: 100%;
             }
             /*Images*/
             .content .circular img{
@@ -162,6 +240,9 @@
             .content .circular img:nth-child(3){left: 20%;}
         }
         @media (max-width:420px) {
+            .presentation h2{
+                font-size: 36px;
+            }
             .content{padding: 15px 0;}
             .content .circular img:nth-child(1){left: 10px;}
             .content .circular img:nth-child(2){left: 50px;}
@@ -220,6 +301,7 @@
     <section class="main_content">
         <div class="content">
             <h1>NOTRE MISSION</h1>
+            <div class="underline"></div>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
                 Atque amet voluptate, aspernatur dolor ullam quia eligendi possimus vitae ducimus repellat.
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa voluptatum beatae minus similique 
@@ -228,6 +310,7 @@
         </div>
         <div class="content">
             <h1>NOS ATOUTS</h1>
+            <div class="underline"></div>
             <div class="content_grid">
                 <div class="box">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
@@ -279,11 +362,47 @@
             </div>
         </div>
         <div class="content">
-            <div class="flex">
-                <div class="box">
-                    <img src="" alt="">
+            <h1>NOS PROGRAMMES</h1>
+            <div class="underline"></div>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                Est reprehenderit distinctio magni officiis quod similique earum unde nulla expedita neque?</p>
+            <div class="program_grid">
+                <div class="program_box">
+                    <img src="../assets/french flag.png" alt="">
+                    <h3>Programme Français</h3>
+                    <p>
+                        Le programme Français vous permet d’obtenir un diplôme mondialement reconnu, qui ouvre 
+                        les portes des universités et des grande écoles Européennes et Nord Américaines a nos élèves.
+                    </p>
+                    <a href="program.html">
+                        <button>En savoir plus</button>
+                    </a>
                 </div>
-                <div class="box"></div>
+                <div class="program_box">
+                    <img src="../assets/Flag-Guinea.webp" alt="">
+                    <h3>Programme Guinéen</h3>
+                    <p>
+                        Du primaire au lycée en passant par le collège, nous dispensons des cours tels que définie 
+                        dans le programme guinéen avec un renforcement en anglais et en informatique des le bas age.
+                    </p>
+                    <a href="program.html">
+                        <button>En savoir plus</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="box">
+                <img src="../assets/egg.jpeg" alt="">
+            </div>
+            <div class="box">
+                <h2>La vie à Bah-Kane</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis 
+                    exercitationem facere ullam reiciendis quibusdam qui quia illum laborum quasi illo.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde inventore libero cum at ea explicabo. 
+                    Magnam reiciendis facilis nisi odio!
+                </p>
             </div>
         </div>
          <div class="content">

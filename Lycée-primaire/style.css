@@ -130,8 +130,8 @@ footer .block img{
 
 footer .social_block{
     display: flex;
-    justify-content: space-between;
-    gap: 8px;
+    justify-content: center;
+    gap: 40px;
 }
 footer .svg_container{
     border-radius: 7px;
