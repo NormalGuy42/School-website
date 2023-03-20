@@ -47,6 +47,8 @@ header .logo img{
     margin-bottom: 40px;
     cursor: pointer;
     font-weight: bold;
+    display: flex;
+    align-items: center;
 }
 .sidebar label{
     display: flex;
@@ -61,6 +63,12 @@ header .logo img{
 }
 .sidebar div{
     margin: 0 0 20px;
+}
+svg {
+    height: 32px;
+    width: 32px;
+    fill: white;
+    margin-right: 5px;
 }
 .svg_collapse{
     height: 20px;
