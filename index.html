@@ -416,7 +416,8 @@
                             }
                         }
                     },duration)
-                    
+                    //Unobserve once the values are changed
+                    observer.unobserve(container);
                 })
             }
             //Start animation when elements in viewport
