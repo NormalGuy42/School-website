@@ -185,7 +185,7 @@
             grid-template-columns: repeat(auto-fit,200px);
             gap: 30px;
             justify-content: space-around;
-            background-color: #0b0b99e8;
+            background-color: #01509d;
             padding: 70px 0 150px;
             z-index: 30;
         }
@@ -417,13 +417,13 @@
                         }
                     },duration)
                     //Unobserve once the values are changed
-                    observer.unobserve(container);
                 })
             }
             //Start animation when elements in viewport
-            const options = {root:null,rootMargin:"0px",threshold:0.3};
+            const options = {root:null,rootMargin:"0px",threshold:0.5};
             const observer = new IntersectionObserver(counter,options);
             observer.observe(container);
+            
         }
         animatedCounter();
     </script>
