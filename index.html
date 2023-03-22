@@ -391,7 +391,7 @@
     </section>
     <script defer>
         function animatedCounter(){
-            let container = document.querySelector(".stats_container")
+            let container = document.querySelector(".stats_container");
             //Animation function
             const counter = function(){
                 let values = document.querySelectorAll('.num');
@@ -416,14 +416,13 @@
                             }
                         }
                     },duration)
-                    //Unobserve once the values are changed
+                    
                 })
             }
             //Start animation when elements in viewport
-            const options = {root:null,rootMargin:"0px",threshold:0.5};
+            const options = {root:null,rootMargin:"0px",threshold:0.3};
             const observer = new IntersectionObserver(counter,options);
             observer.observe(container);
-            
         }
         animatedCounter();
     </script>
