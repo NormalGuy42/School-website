@@ -185,7 +185,7 @@
             grid-template-columns: repeat(auto-fit,200px);
             gap: 30px;
             justify-content: space-around;
-            background-color: blue;
+            background-color: #0b0b99e8;
             padding: 70px 0 150px;
             z-index: 30;
         }
@@ -241,7 +241,7 @@
                 gap:4.5rem;
             }
         }
-        @media (max-width:800px) {
+        @media (max-width:920px) {
             footer{
                 flex-wrap: nowrap;
                 flex-direction: column;
@@ -252,6 +252,9 @@
             }
             footer .social_links{
                 justify-content: center;
+            }
+            .stats_container{
+                grid-template-columns: repeat(2,200px);
             }
         }
         @media (max-width:450px) {
@@ -268,6 +271,9 @@
             }
             .schools .box .box_overlay{
                 width: 280px;
+            }
+            .stats_container{
+                grid-template-columns: repeat(1,200px);
             }
         }
     </style>
@@ -384,38 +390,41 @@
         </div>
     </section>
     <script defer>
-        let container = document.querySelector(".stats_container")
-        //Animation function
-        const counter = function(){
-            let values = document.querySelectorAll('.num');
-            let interval = 6000;
-            values.forEach(value =>{
-                let startValue = 0;
-                let endValue = parseInt(value.getAttribute("data-val"));
-                let duration = Math.floor(endValue/interval)
-                let counter = setInterval(function(){
-                    if(endValue >=500){
-                        startValue += 20;
-                        value.textContent = startValue;
-                        if(startValue == endValue){
-                            clearInterval(counter)
+        function animatedCounter(){
+            let container = document.querySelector(".stats_container")
+            //Animation function
+            const counter = function(){
+                let values = document.querySelectorAll('.num');
+                let interval = 6000;
+                values.forEach(value =>{
+                    let startValue = 0;
+                    let endValue = parseInt(value.getAttribute("data-val"));
+                    let duration = Math.floor(endValue/interval)
+                    let counter = setInterval(function(){
+                        if(endValue >=500){
+                            startValue += 20;
+                            value.textContent = startValue;
+                            if(startValue == endValue){
+                                clearInterval(counter)
+                            }
                         }
-                    }
-                    else if(endValue <=500){
-                        startValue += 1;
-                        value.textContent = startValue;
-                        if(startValue == endValue){
-                            clearInterval(counter)
+                        else if(endValue <=500){
+                            startValue += 1;
+                            value.textContent = startValue;
+                            if(startValue == endValue){
+                                clearInterval(counter)
+                            }
                         }
-                    }
-                },duration)
-                
-            })
+                    },duration)
+                    
+                })
+            }
+            //Start animation when elements in viewport
+            const options = {root:null,rootMargin:"0px",threshold:0.3};
+            const observer = new IntersectionObserver(counter,options);
+            observer.observe(container);
         }
-        //Start animation when elements in viewport
-        const options = {root:null,rootMargin:"0px",threshold:[0,1]};
-        const observer = new IntersectionObserver(counter,options);
-        observer.observe(container);
+        animatedCounter();
     </script>
     <!--Main body end-->
     <!--<footer>
