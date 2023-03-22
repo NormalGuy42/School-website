@@ -7,6 +7,43 @@
     <title>Nos Programmes</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"defer></script>
+    <style>
+        .program_grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,130px);
+            gap: 20px;
+            padding: 20px;
+            justify-content: space-around;
+            margin-bottom: 80px;
+        }
+        .program_grid a{
+            display: block;
+            width: fit-content;
+        }
+        .program_grid img{
+            height: 150px;
+            width: 130px;
+            object-fit: contain;
+        }
+        /*Program description*/
+        .program{
+            text-align: start !important;
+        }
+        .program{
+            margin-bottom: 30px;
+        }
+        .program a{
+            color: royalblue;
+            text-decoration: none;
+            margin-top: 18px;
+            display: block;
+        }
+        @media (max-width:330px) {
+            body{
+                overflow-x: hidden;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -46,6 +83,56 @@
             <div class="underline"></div>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur a soluta et inventore architecto nulla? Consequuntur quod, 
             rem qui esse magni, tempora suscipit iure vero minima nihil quaerat distinctio in?</p>
+        </div>
+        <div class="program_grid">
+            <a href="#france">
+                <img src="../assets/french flag.png" alt="">
+                <!-- <span class="cursor-text">Cliquez pour voir le programme français</span> -->
+            </a>
+            <a href="#guinea">
+                <img src="../assets/Flag-Guinea.webp" alt="">
+                <!-- <span class="cursor-text">Cliquez pour voir le programme français</span> -->
+            </a>
+        </div>
+        <div class="content program" id="france">
+            <h2>Le Programme Français</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis explicabo minima enim possimus temporibus dolor, optio dolore saepe exercitationem quas rerum quaerat cupiditate, culpa molestias ea odio. Nobis minima at eveniet, excepturi est eaque vero nam qui aperiam enim 
+                eligendi dolorum nulla, nemo magni id? Voluptates repellat ducimus voluptatem maiores.
+            </p>
+            <h3>Mot du directeur</h2>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia nihil quos eligendi, illo 
+                facere esse porro dolore quae aspernatur voluptates.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque itaque, molestias reiciendis obcaecati mollitia magni architecto quibusdam cupiditate dolorem deserunt vel! Dicta, nisi deleniti repellat ad nihil, quos unde ex delectus nemo quas ratione laborum sit voluptatibus. Laudantium molestias earum molestiae quo, 
+                aliquam debitis aperiam cumque blanditiis! Dignissimos, maiores minus?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ab provident asperiores excepturi, dicta possimus eum molestiae quod. Sint amet recusandae minima a adipisci, provident iusto laborum qui repellat totam.
+            </p>
+            <img src="" alt="">
+            <h3>Admission</h3>
+            <a href="admission.html">
+                Cliquez pour voir le prix de la scolarité
+            </a>
+        </div>
+        <div class="content program" id="guinea">
+            <h2>Le Programme Guinéen</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis explicabo minima enim possimus temporibus dolor, optio dolore saepe exercitationem quas rerum quaerat cupiditate, culpa molestias ea odio. Nobis minima at eveniet, excepturi est eaque vero nam qui aperiam enim 
+                eligendi dolorum nulla, nemo magni id? Voluptates repellat ducimus voluptatem maiores.
+            </p>
+            <h3>Mot du directeur</h2>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia nihil quos eligendi, illo 
+                facere esse porro dolore quae aspernatur voluptates.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque itaque, molestias reiciendis obcaecati mollitia magni architecto quibusdam cupiditate dolorem deserunt vel! Dicta, nisi deleniti repellat ad nihil, quos unde ex delectus nemo quas ratione laborum sit voluptatibus. Laudantium molestias earum molestiae quo, 
+                aliquam debitis aperiam cumque blanditiis! Dignissimos, maiores minus?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ab provident asperiores excepturi, dicta possimus eum molestiae quod. Sint amet recusandae minima a adipisci, provident iusto laborum qui repellat totam.
+            </p>
+            <img src="" alt="">
+            <h3>Admission</h3>
+            <a href="admission.html">
+                Cliquez pour voir le prix de la scolarité
+            </a>
         </div>
     </section>
     <!--Footer start-->
