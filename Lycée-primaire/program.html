@@ -38,9 +38,19 @@
             margin-top: 18px;
             display: block;
         }
+        /*Divider*/
+        .divider{
+            height: 10px;
+            width: 250px;
+            margin: 40px auto;
+            background-color: var(--title-blue);
+        }
         @media (max-width:520px) {
             .program_grid{
                 grid-template-columns: repeat(1,130px);
+            }
+            .divider{
+                width: 150px;
             }
         }        
         
@@ -120,6 +130,7 @@
                 Cliquez pour voir le prix de la scolarité
             </a>
         </div>
+        <div class="divider"></div>
         <div class="content program" id="guinea">
             <h2>Le Programme Guinéen</h2>
             <p>
