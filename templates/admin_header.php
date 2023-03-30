@@ -1,38 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Admin</title>
-    <link rel="stylesheet" href="admin_style.css">
-    <script src="admin_script.js" defer></script>
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <img src="../assets/bah_kane_circle.png" alt="">
-        </div>
-        <svg class="burger" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="burger_svg" version="1.1" width="400" height="400" viewBox="0, 0, 400,400">
-            <g id="svgg" class="burger">
-                <path id="path0" d="M60.169 74.148 C 47.307 78.873,46.513 97.065,58.895 103.329 L 61.011 104.400 204.800 104.400 
-                L 348.589 104.400 350.794 103.303 C 353.391 102.011,356.886 98.629,357.821 
-                96.503 C 358.184 95.676,358.682 94.579,358.928 94.064 C 359.575 92.705,359.507 
-                86.134,358.823 84.000 C 357.606 80.200,354.434 76.679,350.535 74.798 L 348.050 
-                73.600 204.725 73.648 C 99.229 73.683,61.075 73.815,60.169 74.148 M62.200 170.182 C 47.700 173.758,45.600 193.882,59.041 
-                200.451 L 61.800 201.800 204.800 201.800 L 347.800 201.800 350.479 200.490 C 356.965 
-                197.317,360.468 190.657,359.400 183.529 C 359.180 182.061,358.865 180.726,358.700 180.563 C 358.535 180.400,358.400 180.017,358.400 
-                179.711 C 358.400 176.719,352.298 171.459,347.325 170.164 C 344.316 169.380,65.379 169.398,62.200 170.182 M60.973 267.526 
-                C 46.699 272.270,46.388 293.278,60.515 298.442 C 63.768 299.631,345.832 299.631,349.085 298.442 
-                C 363.245 293.266,362.974 272.618,348.681 267.595 C 345.416 266.447,64.422 266.380,60.973 267.526 " stroke="white" fill="#fff" fill-rule="evenodd" class="burger">
-                </path>
-            </g>
-        </svg>
-    </header>
+<header>
+    <div class="logo">
+        <img src="../assets/bah_kane_circle.png" alt="">
+    </div>
+    <svg class="burger" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="burger_svg" version="1.1" width="400" height="400" viewBox="0, 0, 400,400">
+        <g id="svgg" class="burger">
+            <path id="path0" d="M60.169 74.148 C 47.307 78.873,46.513 97.065,58.895 103.329 L 61.011 104.400 204.800 104.400 
+            L 348.589 104.400 350.794 103.303 C 353.391 102.011,356.886 98.629,357.821 
+            96.503 C 358.184 95.676,358.682 94.579,358.928 94.064 C 359.575 92.705,359.507 
+            86.134,358.823 84.000 C 357.606 80.200,354.434 76.679,350.535 74.798 L 348.050 
+            73.600 204.725 73.648 C 99.229 73.683,61.075 73.815,60.169 74.148 M62.200 170.182 C 47.700 173.758,45.600 193.882,59.041 
+            200.451 L 61.800 201.800 204.800 201.800 L 347.800 201.800 350.479 200.490 C 356.965 
+            197.317,360.468 190.657,359.400 183.529 C 359.180 182.061,358.865 180.726,358.700 180.563 C 358.535 180.400,358.400 180.017,358.400 
+            179.711 C 358.400 176.719,352.298 171.459,347.325 170.164 C 344.316 169.380,65.379 169.398,62.200 170.182 M60.973 267.526 
+            C 46.699 272.270,46.388 293.278,60.515 298.442 C 63.768 299.631,345.832 299.631,349.085 298.442 
+            C 363.245 293.266,362.974 272.618,348.681 267.595 C 345.416 266.447,64.422 266.380,60.973 267.526 " stroke="white" fill="#fff" fill-rule="evenodd" class="burger">
+            </path>
+        </g>
+    </svg>
+</header>
+<section class="userpage">
     <div class="sidebar">
         <nav>
             <ul>
                 <li>
+                    <a href="./admin.php">
                     <label for="">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" 
@@ -52,6 +43,7 @@
                         </svg>
                         Page d'accueil
                     </label>
+                    </a>
                 </li>
                 <li>
                     <label for="" class="collapsable">
@@ -72,12 +64,21 @@
                         </svg>
                     </label>
                     <section class="section_collapse">
-                        <div>Accueil</div>
-                        <div>A Propos</div>
-                        <div>Masters</div>
-                        <div>Licence</div>
-                        <div>Formation</div>
-                        <div>Contact</div>
+                        <a href="iuheg/accueil.php">
+                            <div>Accueil</div>
+                        </a>
+                        <a href="iuheg/masters.php">
+                            <div>Masters</div>
+                        </a>
+                        <a href="iuheg/licence.php">
+                            <div>Licence</div>
+                        </a>
+                        <a href="iuheg/formation.php">
+                            <div>Formation</div>
+                        </a>
+                        <a href="iuheg/contact.php">
+                            <div>Contact</div>
+                        </a>
                     </section>
                 </li>
                 <li>
@@ -99,14 +100,13 @@
                         </svg>
                     </label>
                     <section class="section_collapse">
-                        <div>Accueil</div>
-                        <div>Programmes</div>
-                        <div>A propos</div>
-                        <div>Contact</div>
+                        <a href="../Lycée-primaire/accueil.php"><div>Acceuil</div></a>
+                        <a href="../Lycée-primaire/contact.php"><div>Contact</div></a>
                     </section>
                 </li>
                 <li>
-                    <label for="">
+                <a href="./messages.php">
+                <label for="">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg" version="1.1" width="400" 
                     height="401.7699115044248" viewBox="0, 0, 400,401.7699115044248">
                         <g id="svgg">
@@ -157,9 +157,11 @@
                     </svg>
                     Messages
                     </label>
+                </a>
                 </li>
                 <li>
-                   <label>
+                    <a href="./settings.php">
+                    <label>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <path d="M481.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-30.9 28.1c-7.7 7.1-11.4 17.5-10.9 27.9c.1 2.9 .2 
                         5.8 .2 8.8s-.1 5.9-.2 8.8c-.5 10.5 3.1 20.9 10.9 27.9l30.9 28.1c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 
@@ -175,10 +177,9 @@
                         2.7 10.2 5.6 15.1 8.7c8.8 5.7 19.7 7.7 29.7 4.6l39.7-12.6c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 
                         22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM242 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/></svg>
                         Paramètres
-                   </label>
+                    </label>
+                    </a>
                 </li>
             </ul>
         </nav>
     </div>
-</body>
-</html>

@@ -16,6 +16,9 @@ body{
     height: 100%;
     width: 100%;
 }
+.error{
+    color: red;
+}
 /*header start*/
 .show{
     /* display: block !important; */
@@ -126,6 +129,7 @@ header nav{
     background-color: royalblue;
     border: none;
     color: white;
+    cursor: pointer;
 }
 /*Contact end*/
 /*Footer start*/

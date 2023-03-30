@@ -1,3 +1,45 @@
+<?php 
+    $name = $message = $email = $objet = '';
+    $errors = array('name' =>'','email' =>'','objet'=>'','message'=>'');
+
+    if(isset($_POST['submit'])){
+        //Check name
+        if(empty($_POST['name'])){
+            $errors['name'] = 'Entrez votre nom'; 
+        }else{
+            $name = $_POST['name'];
+            if(!preg_match('/^[a-zA-Z\s]+$/',$name)){
+                $errors['name'] = 'Votre prénom doit uniquement contenir des lettres';
+            }
+        }
+        //Check objet
+        if(empty($_POST['objet'])){
+            $errors['objet'] = 'Entrez l\'objet de votre message'; 
+        }else{
+            $objet = $_POST['objet'];
+            if(!preg_match('/^[a-zA-Z\s]+$/',$objet)){
+                $errors['objet'] = 'Cette boite doit uniquement contenir des lettres';
+            }
+        }
+        //Check email
+        if(empty($_POST['email'])){
+            $errors['email'] = 'Entrez votre email'; 
+        }else{
+            $email = $_POST['email'];
+            if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+                $errors['email'] = 'Votre email doit être une adresse email valide';
+            }
+        }
+        //Check message
+        if(empty($_POST['message'])){
+            $errors['message'] = 'Entrez un message'; 
+        }else{
+            $message = $_POST['message'];
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,6 +178,7 @@
             text-align: center !important;
         }
         .program_box a{
+            color:inherit;
             text-decoration: none;
         }
         .program_box button{
@@ -147,6 +190,7 @@
             margin: 0 auto;
             position: relative;
             top: 32px;
+            cursor: pointer;
         }
         /*Programmes end*/
         /*Vie etudiante start*/
@@ -367,24 +411,24 @@
                 Est reprehenderit distinctio magni officiis quod similique earum unde nulla expedita neque?</p>
             <div class="program_grid">
                 <div class="program_box">
-                    <img src="../assets/french flag.png" alt="">
-                    <h3>Programme Français</h3>
-                    <p>
-                        Le programme Français vous permet d’obtenir un diplôme mondialement reconnu, qui ouvre 
-                        les portes des universités et des grande écoles Européennes et Nord Américaines a nos élèves.
-                    </p>
-                    <a href="program.html">
+                    <a href="program.html#france">
+                        <img src="../assets/french flag.png" alt="">
+                        <h3>Programme Français</h3>
+                        <p>
+                            Le programme Français vous permet d’obtenir un diplôme mondialement reconnu, qui ouvre 
+                            les portes des universités et des grande écoles Européennes et Nord Américaines a nos élèves.
+                        </p>
                         <button>En savoir plus</button>
                     </a>
                 </div>
                 <div class="program_box">
-                    <img src="../assets/Flag-Guinea.webp" alt="">
-                    <h3>Programme Guinéen</h3>
-                    <p>
-                        Du primaire au lycée en passant par le collège, nous dispensons des cours tels que définie 
-                        dans le programme guinéen avec un renforcement en anglais et en informatique des le bas age.
-                    </p>
-                    <a href="program.html">
+                    <a href="program.html#guinea">
+                        <img src="../assets/Flag-Guinea.webp" alt="">
+                        <h3>Programme Guinéen</h3>
+                        <p>
+                            Du primaire au lycée en passant par le collège, nous dispensons des cours tels que définie 
+                            dans le programme guinéen avec un renforcement en anglais et en informatique des le bas age.
+                        </p>
                         <button>En savoir plus</button>
                     </a>
                 </div>
@@ -414,11 +458,20 @@
         <div class="contact_content">
             <h1>Contactez-nous</h1>
             <div class="contact">
-                <form action="">
-                    <input type="text" placeholder="Nom et Prenom">
-                    <input type="text" placeholder="Objet">
-                    <textarea placeholder="Votre message" cols="30" rows="10"></textarea>
-                    <button>Envoyer</button>
+                <form action="index.php" method="POST">
+                    <input type="text" placeholder="Nom et Prenom" name="name" value="<?php echo htmlspecialchars($name)?>">
+                    <div class="error"><?php echo $errors['name']?></div>
+
+                    <input type="email" placeholder="Email" name="email" value="<?php echo htmlspecialchars($email)?>">
+                    <div class="error"><?php echo $errors['email']?></div>
+
+                    <input type="text" placeholder="Objet" name="objet" value="<?php echo htmlspecialchars($objet)?>">
+                    <div class="error"><?php echo $errors['objet']?></div>
+
+                    <textarea placeholder="Votre message" cols="30" rows="10" name="message" value="<?php echo htmlspecialchars($message)?>"></textarea>
+                    <div class="error"><?php echo $errors['message']?></div>
+
+                    <button name="submit" value="submit">Envoyer</button>
                 </form>
                 <a href="https://www.google.com/maps/place/Les+%C3%89coles+Bah-Kane/@9.6289839,-13.6078356,17z/data=!3m1!4b1!4m6!3m5!1s0xf1cd5bd9468f2ad:0xca009893b15b190d!8m2!3d9.6289786!4d-13.6056469!16s%2Fg%2F11j4yfszrr" target="_blank">
                     <img src="../assets/bah_kane_gmaps.png" alt="">

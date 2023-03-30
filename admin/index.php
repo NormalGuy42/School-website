@@ -1,3 +1,24 @@
+<?php 
+    $id = $password = '';
+    $errors = ['id' =>'','password'=>''];
+    if(isset($_POST['submit'])){
+        //Check id
+        if(empty($_POST['id'])){
+            $id = $_POST['id'];
+            $errors['id'] = 'Vous devez entrer un identifiant';
+        }
+        //Check id
+        if(empty($_POST['password'])){
+            $password = $_POST['password'];
+            $errors['password'] = 'Vous devez entrer un identifiant';
+        }
+        //If the id and password are correct
+        if(!array_filter($errors)){
+            header('Location: admin.php');
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,10 +78,14 @@
     <div class="logo">
         <img src="../assets/ecolebahkane.jpeg">
     </div>
-    <div>
-        <input type="text" placeholder="Identifiant">
-        <input type="password" placeholder="Mot de passe">
-        <button>Se connecter</button>
-    </div>
+    <form action="index.php" method="POST">
+        <div>
+            <input type="text" placeholder="Identifiant" name="id" value="<?php echo htmlspecialchars($id)?>">
+            <div class="error"><?php echo htmlspecialchars($errors['id'])?></div>
+            <input type="password" placeholder="Mot de passe" name="password" value="<?php echo htmlspecialchars($password)?>">
+            <div class="error"><?php echo htmlspecialchars($errors['password'])?></div>
+            <button value="submit" name="submit">Se connecter</button>
+        </div>
+    </form>
 </body>
 </html>
