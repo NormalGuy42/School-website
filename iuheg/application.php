@@ -42,16 +42,52 @@
             object-fit: cover;
         }
         .step button{
-            height: 30px;
-            width: 100px;
+            height: 40px;
+            width: 120px;
             color: white;
             background-color: darkblue;
             border-color: blue;
             margin: 20px auto;
             display: block;
+            font-size: 18px;
         }
         /*box start*/
-
+        .step .box_grid{
+            display: flex;
+            flex-direction: column;
+        }
+        .step .box_grid .box{
+            background-color: #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items:  center;
+            width: 80%;
+            min-width: 300px;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 5px;
+            box-shadow: 0 0 2px 2px rgb(0,0,0,15%);
+        }
+        .step .box h3{
+            margin-left: 20px
+        }
+        .step .box_grid .box .buttons{
+            display: flex;
+            align-items: center;
+        }
+        .step .box_grid .box button{
+            background-color: transparent;
+            border: none;
+            color: black;
+            font-size: 40px;
+            cursor: pointer;
+            width: 50px;
+            height: 100%;
+        }
+        .step svg{
+            height: 30px;
+            width: 30px;
+        }
         /*box end*/
     </style>
 </head>
@@ -93,11 +129,32 @@
             <h1>étape 3</h1>
             <p>Envoyez vos documents</p>
             <div class="box_grid">
+                <div class="box">
+                    <h3>Extrait de naissance</h3>
+                    <div class="buttons">
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com 
+                                License - https://fontawesome.com/license (Commercial License) Copyright 2023 
+                                Fonticons, Inc. -->
+                                <path d="M246.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 
+                                45.3s32.8 12.5 45.3 0L192 109.3V320c0 17.7 14.3 32 32 32s32-14.3 32-32V109.3l73.4 
+                                73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128zM64 352c0-17.7-14.3-32-32-32s-32 
+                                14.3-32 32v64c0 53 43 96 96 96H352c53 0 96-43 96-96V352c0-17.7-14.3-32-32-32s-32 
+                                14.3-32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V352z"/>
+                            </svg>
+                        </button>
+                        <button>
+                            &#8942;
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="step">
             <h1>étape 4</h1>
-            <p></p>
+            <p>Finalisation de la demande</p>
+            <button>Tout envoyer</button>
         </div>
     </section>
     <script>
