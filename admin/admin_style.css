@@ -42,11 +42,11 @@ header .logo img{
     /* width: 300px; */
     display: block;
     width: 300px;
-    height: 100%;
-    padding: 20px 0 0 20px;
+    min-height: 100%;
     color: white;
     overflow: hidden;
     transition: all .4s;
+    padding: 20px 0 30px 20px
 }
 .sidebar ul{
     list-style-type: none;
@@ -95,13 +95,14 @@ svg {
 /*Sidebar end*/
 /*section start*/
 .userpage{
-    height: 100%;
+    min-height: 100%;
     display: flex;
 }
 .page{
     max-width: 1300px;
     padding: 20px;
     width: 80%;
+    min-height: 100%;
 }
 .page .title{
     font-size: 40px;
@@ -227,7 +228,9 @@ svg {
     display: block;
 }
 /*Data box end*/
+/*Form application start*/
 
+/*Form application end*/
 @media (max-width:800px) {
     .burger{
         display: block;
@@ -242,6 +245,8 @@ svg {
     .sidebar{
         width: 0;
         position: absolute;
+        padding: 0;
+        z-index: 3;
     }
     .showSidebar{
         width: 270px !important;

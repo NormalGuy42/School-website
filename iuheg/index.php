@@ -1,3 +1,27 @@
+<?php 
+    //Connect to database
+    $db = mysqli_connect('localhost','admin','200410','iuheg');
+    //Check connection
+    if(!$db){
+        echo 'Connection error '.mysqli_connect_error();
+    }
+    //Write query for all blogs
+    $sql_blog = 'SELECT * FROM blogs';
+    $sql_events = 'SELECT * FROM events';
+    // make query and get result
+    $result_blog = mysqli_query($db,$sql_blog);
+    $result_events = mysqli_query($db,$sql_events);
+    //fetch the resulting rows as an array
+    $blogs = mysqli_query($db,$sql_blog);
+    $events = mysqli_query($db,$sql_events);
+    //Free result from memory
+    mysqli_free_result($result_blog);
+    mysqli_free_result($result_events);
+    //Close connection
+    mysqli_close($db);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +36,8 @@
         /*Parallax end*/
         /*The way this works is by leaving presentation with a lower 
         z-index than the main content*/
+        .hide{display: none !important;}
+
         .presentation{
             height: 100vh;
             width: 100%;
@@ -476,7 +502,7 @@
     <div class="main">
         <div class="stats">
             <div class="column">
-                <img src="../assets/bibli.webp">
+                <img src="../assets/bibli.webp">                     
                 <label>2 bibliothèques modernes avec +1000 lives</label>
             </div>
             <div class="column">
@@ -561,47 +587,23 @@
         <div class="upcoming">
                 <h3>Evenements à venir</h3>
                 <div class="box_container">
-                    <div class="box">
-                        <a href="event.html">
-                            <img src="../assets/student_life.webp">
-                            <div class="card">
-                                <h3>10</h3>
-                                <span>AVR</span>
-                            </div>
-                            <div class="caption">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, fugit.
-                                </p>
-                                <label for="">12h</label>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="box">
-                        <img src="../assets/student_life.webp">
-                        <div class="card">
-                            <h3>10</h3>
-                            <span>AVR</span>
+                    <?php foreach($events as $event){?>
+                        <div class="box">
+                            <a href="event.html">
+                                <img src="../assets/<?php echo $event['image']?>">
+                                <div class="card">
+                                    <h3><?php echo $event['day']?></h3>
+                                    <span><?php echo $event['month']?></span>
+                                </div>
+                                <div class="caption">
+                                    <p>
+                                        <?php echo $event['title']?>
+                                    </p>
+                                    <label for=""><?php echo $event['hour']?><span>h</label>
+                                </div>
+                            </a>
                         </div>
-                        <div class="caption">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, fugit.
-                            </p>
-                            <label for="">12h</label>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <img src="../assets/student_life.webp">
-                        <div class="card">
-                            <h3>10</h3>
-                            <span>AVR</span>
-                        </div>
-                        <div class="caption">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, fugit.
-                            </p>
-                            <label for="">12h</label>
-                        </div>
-                    </div>
+                    <?php }?>
                 </div>
         </div>
         <div class="news_outer">
@@ -612,40 +614,31 @@
                         <div class="line"></div>
                     </div>
                     <div class="news_container">
+                        <?php foreach($blogs as $blog){?>
+                        <?php if($blog['main_boolean']){?>
                         <div class="news_box headline">
-                            <a href="event.html">
-                                <img src="../assets/students pic.png">
-                                <label for=""><span>2023-03-15</span><span>  </span><span>17h:09</span></label>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas 
-                                quae maiores ratione reprehenderit quidem? </p>
+                            <a href="event.php">
+                                <img src="../assets/blog/<?php echo $blog['image']?>">
+                                <label for=""><?php echo htmlspecialchars($blog['created_at'])?></label>
+                                <p><?php echo htmlspecialchars($blog['title'])?></p>
                             </a>
                         </div>
+                        <?php }else{?>
                         <div class="other_news">
                             <div class="news_box">
-                                <a href="event.html">
+                                <a href="event.php">
                                     <div>
-                                        <img src="../assets/students pic.png">
+                                        <img src="../assets/blog/<?php echo $blog['image']?>">
                                     </div>
                                     <div>
-                                        <label for=""><span>2023-03-15</span><span>  </span><span>17h:09</span></label>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas 
-                                        quae maiores ratione reprehenderit quidem? </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="news_box">
-                                <a href="event.html">
-                                    <div>
-                                        <img src="../assets/students pic.png">
-                                    </div>
-                                    <div>
-                                        <label for=""><span>2023-03-15</span><span>  </span><span>17h:09</span></label>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas 
-                                        quae maiores ratione reprehenderit quidem? </p>
+                                        <label for=""><?php echo htmlspecialchars($blog['created_at'])?></label>
+                                        <p><?php echo htmlspecialchars($blog['title'])?></p>
                                     </div>
                                 </a>
                             </div>
                         </div>
+                        <?php }?>
+                        <?php }?>
                     </div>
                 </div>
                 <!--Newsletter start-->
@@ -666,10 +659,18 @@
         <!--Footer end-->
     </div>
    <script defer>
+    //Evenements
+    var boxContainer = document.querySelector('.box_container');
+    var upcoming =document.querySelector('.upcoming');
+    if(boxContainer.children.length == 0){
+        upcoming.classList.add('hide')
+    }
     //Change newsletter size when there is no blog
-    var news = document.querySelector('.news');
+    var news = document.querySelector('.news_container');
+    var outerNews = document.querySelector('.outer_news_container');
     var newsletter = document.querySelector('.newsletter');
-    if(news.length = 2){
+    if(news.children.length == 0){
+        outerNews.classList.add('hide')
         newsletter.classList.add('expand');
     }
    </script>

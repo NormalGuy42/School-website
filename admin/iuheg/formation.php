@@ -5,7 +5,11 @@
         <div class="content">
             <div class="header">
                 <h2>Programmes</h2>
-                <div class="data_add">+</div>
+                <div class="data_add">
+                    <a href="../add_program.php">
+                        +
+                    </a>
+                </div>
             </div>
             <div class="data_grid">
                 <div class="container">

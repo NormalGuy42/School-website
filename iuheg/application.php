@@ -1,3 +1,8 @@
+<?php
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +23,12 @@
             min-width: 300px;
             max-width: 700px;
             margin: 0 auto 12px;
+        }
+        .step{
+            padding: 0 20px;
+        }
+        .step:last-child{
+            padding-bottom: 30px;
         }
         .step h1{
             text-transform: capitalize;
@@ -69,7 +80,9 @@
             box-shadow: 0 0 2px 2px rgb(0,0,0,15%);
         }
         .step .box h3{
-            margin-left: 20px
+            margin-left: 20px;
+            font-size: 22px;
+            font-weight: normal;
         }
         .step .box_grid .box .buttons{
             display: flex;
@@ -82,7 +95,6 @@
             font-size: 40px;
             cursor: pointer;
             width: 50px;
-            height: 100%;
         }
         .step svg{
             height: 30px;
@@ -96,66 +108,88 @@
     <?php include('../templates/iuheg_header.php')?>
     <!-- header end -->
     <section>
-        <div class="step">
-            <h1>étape 1</h1>
-            <p>Remplissez le formulaire</p>
-            <input type="text" placeholder="Nom">
-            <input type="text" placeholder="Prénom">
-            <select name="" id="program_type">
-                <option>Type de programme</option>
-                <option>Licence</option>
-                <option>Masters</option>
-                <option>Formation professionelle</option>
-            </select>
-            <select name="" id="program_name">
-                <option>Choisissez le programme</option>
-                <optgroup>
-                    <option></option>
-                </optgroup>
-            </select>
-        </div>
-        <div class="step">
-            <h1>étape 2</h1>
-            <p>Envoyez vos photos</p>
-            <div class="pic_grid">
-                <div class="container"></div>
-                <div class="container"></div>
-                <div class="container"></div>
-                <div class="container"></div>
+        <form action="application.php" method="POST">
+            <div class="step">
+                <h1>étape 1</h1>
+                <p>Remplissez le formulaire</p>
+                <input type="text" placeholder="Nom">
+                <input type="text" placeholder="Prénom">
+                <select name="" id="program_type">
+                    <option>Type de programme</option>
+                    <option>Licence</option>
+                    <option>Masters</option>
+                    <option>Formation professionelle</option>
+                </select>
+                <select name="" id="program_name">
+                    <option>Choisissez le programme</option>
+                    <optgroup>
+                        <option></option>
+                    </optgroup>
+                </select>
             </div>
-            <button>Envoyez</button>
-        </div>
-        <div class="step">
-            <h1>étape 3</h1>
-            <p>Envoyez vos documents</p>
-            <div class="box_grid">
-                <div class="box">
-                    <h3>Extrait de naissance</h3>
-                    <div class="buttons">
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com 
-                                License - https://fontawesome.com/license (Commercial License) Copyright 2023 
-                                Fonticons, Inc. -->
-                                <path d="M246.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 
-                                45.3s32.8 12.5 45.3 0L192 109.3V320c0 17.7 14.3 32 32 32s32-14.3 32-32V109.3l73.4 
-                                73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128zM64 352c0-17.7-14.3-32-32-32s-32 
-                                14.3-32 32v64c0 53 43 96 96 96H352c53 0 96-43 96-96V352c0-17.7-14.3-32-32-32s-32 
-                                14.3-32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V352z"/>
-                            </svg>
-                        </button>
-                        <button>
-                            &#8942;
-                        </button>
+            <div class="step">
+                <h1>étape 2</h1>
+                <p>Envoyez vos photos</p>
+                <div class="pic_grid">
+                    <div class="container"></div>
+                    <div class="container"></div>
+                    <div class="container"></div>
+                    <div class="container"></div>
+                </div>
+                <button>Envoyez</button>
+            </div>
+            <div class="step">
+                <h1>étape 3</h1>
+                <p>Envoyez vos documents</p>
+                <div class="box_grid">
+                    <div class="box">
+                        <h3>Extrait de naissance</h3>
+                        <div class="buttons">
+                            <button>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com 
+                                    License - https://fontawesome.com/license (Commercial License) Copyright 2023 
+                                    Fonticons, Inc. -->
+                                    <path d="M246.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 
+                                    45.3s32.8 12.5 45.3 0L192 109.3V320c0 17.7 14.3 32 32 32s32-14.3 32-32V109.3l73.4 
+                                    73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128zM64 352c0-17.7-14.3-32-32-32s-32 
+                                    14.3-32 32v64c0 53 43 96 96 96H352c53 0 96-43 96-96V352c0-17.7-14.3-32-32-32s-32 
+                                    14.3-32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V352z"/>
+                                </svg>
+                            </button>
+                            <button>
+                                &#8942;
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <h3>Relevé du baccalauréat</h3>
+                        <div class="buttons">
+                            <button>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com 
+                                    License - https://fontawesome.com/license (Commercial License) Copyright 2023 
+                                    Fonticons, Inc. -->
+                                    <path d="M246.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 
+                                    45.3s32.8 12.5 45.3 0L192 109.3V320c0 17.7 14.3 32 32 32s32-14.3 32-32V109.3l73.4 
+                                    73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128zM64 352c0-17.7-14.3-32-32-32s-32 
+                                    14.3-32 32v64c0 53 43 96 96 96H352c53 0 96-43 96-96V352c0-17.7-14.3-32-32-32s-32 
+                                    14.3-32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V352z"/>
+                                </svg>
+                            </button>
+                            <button>
+                                &#8942;
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="step">
-            <h1>étape 4</h1>
-            <p>Finalisation de la demande</p>
-            <button>Tout envoyer</button>
-        </div>
+            <div class="step">
+                <h1>étape 4</h1>
+                <p>Finalisation de la demande</p>
+                <button>Tout envoyer</button>
+            </div>
+        </form>
     </section>
     <script>
         var programType = document.querySelector('#program_type');

@@ -43,6 +43,7 @@ document.addEventListener('click',(e)=>{
 var dataBoxes = document.querySelectorAll('.data_box');
 dataBoxes.forEach(dataBox =>{
     dataBox.addEventListener('click',(e)=>{
+        console.log('clicked');
         var info = dataBox.nextElementSibling;
         activeInfo = document.querySelectorAll('[data-box-active="true"]')
         //If you click on the menu button the databox doesn't expand

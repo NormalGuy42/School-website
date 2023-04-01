@@ -78,7 +78,7 @@
                     <a href="accueil.php">
                         <div>Accueil</div>
                     </a>
-                    <a href="contact.php">
+                    <a href="masters.php">
                         <div>Masters</div>
                     </a>
                     <a href="licence.php">
