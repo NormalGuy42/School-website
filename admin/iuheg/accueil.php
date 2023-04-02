@@ -34,20 +34,22 @@
             </div>
             <div class="data_grid">
                 <?php foreach($events as $event){?>
-                    <div class="data_box">
-                        <h3><?php echo $event['title']?></h3>
-                        <span class="menu_btn">&#8942;</span>
-                        <section class="menu">
-                            <div>Supprimer</div>
-                            <div>Modifier</div>
+                    <div class="container">
+                        <div class="data_box">
+                            <h3><?php echo $event['title']?></h3>
+                            <span class="menu_btn">&#8942;</span>
+                            <section class="menu">
+                                <div>Supprimer</div>
+                                <div>Modifier</div>
+                            </section>
+                        </div>
+                        <section class="info">
+                            <div><h3>Titre</h3><?php echo $event['title']?></div>
+                            <div><h3>Date</h3><?php echo $event['day']?> <?php echo $event['month']?></div>
+                            <div><h3>Image</h3><img src="../../assets/event/<?php echo $event['image']?>" alt=""></div>
+                            <div><h3>Contenu</h3> <?php echo $event['title']?></div>
                         </section>
                     </div>
-                    <section class="info">
-                        <div>Titre<?php echo $event['title']?></div>
-                        <div>Date <?php echo $event['day']?> <?php echo $event['month']?></div>
-                        <div>Image <img src="../../assets/event/<?php echo $event['image']?>" alt=""></div>
-                        <div>Contenu <?php echo $event['title']?></div>
-                    </section>
                 <?php }?>
             </div>
         </div>

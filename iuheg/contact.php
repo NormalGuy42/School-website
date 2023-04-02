@@ -1,3 +1,45 @@
+<?php 
+    $name = $message = $email = $objet = '';
+    $errors = array('name' =>'','email' =>'','objet'=>'','message'=>'');
+
+    if(isset($_POST['submit'])){
+        //Check name
+        if(empty($_POST['name'])){
+            $errors['name'] = 'Entrez votre nom'; 
+        }else{
+            $name = $_POST['name'];
+            if(!preg_match('/^[a-zA-Z\s]+$/',$name)){
+                $errors['name'] = 'Votre prénom doit uniquement contenir des lettres';
+            }
+        }
+        //Check objet
+        if(empty($_POST['objet'])){
+            $errors['objet'] = 'Entrez l\'objet de votre message'; 
+        }else{
+            $objet = $_POST['objet'];
+            if(!preg_match('/^[a-zA-Z\s]+$/',$objet)){
+                $errors['objet'] = 'Cette boite doit uniquement contenir des lettres';
+            }
+        }
+        //Check email
+        if(empty($_POST['email'])){
+            $errors['email'] = 'Entrez votre email'; 
+        }else{
+            $email = $_POST['email'];
+            if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+                $errors['email'] = 'Votre email doit être une adresse email valide';
+            }
+        }
+        //Check message
+        if(empty($_POST['message'])){
+            $errors['message'] = 'Entrez un message'; 
+        }else{
+            $message = $_POST['message'];
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,10 +133,21 @@
             color: whitesmoke;
             display: block;
         }
-        /* #map{
-            height: 400px;
-            width: 400px;
-        } */
+        .map{
+            width: 90%;
+            max-width: 1200px;
+            min-width: 300px;
+            background-color: #020220;
+            margin: 0 auto 50px;
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+        .map img{
+            object-fit: cover;
+            cursor: pointer;
+        }
         /*Contact form end*/
         @media (max-width:520px) {
             .title h1{
@@ -111,6 +164,12 @@
             }
             .contact_form button{
                 width: 292px;
+            }
+        }
+        @media (max-width: 450px) {
+            .map img{
+                width: 240px;
+                height: 300px;
             }
         }
     </style>
@@ -163,20 +222,28 @@
                 </p>
             </div>
         </div>
-        <div id="map">
-            <!-- <script async
-            src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-            </script> -->
-        </div>
+
         <div class="contact_form">
-            <form action="">
-                <h2>Envoyez nous un message</h2>
-                <input type="text" placeholder="Nom et Prénom">
-                <input type="text" placeholder="Email">
-                <input type="text" placeholder="Objet">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
-                <button>Envoyez</button>
+            <form action="contact.php" method="POST">
+                <input type="text" placeholder="Nom et Prenom" name="name" value="<?php echo htmlspecialchars($name)?>">
+                <div class="error"><?php echo $errors['name']?></div>
+
+                <input type="email" placeholder="Email" name="email" value="<?php echo htmlspecialchars($email)?>">
+                <div class="error"><?php echo $errors['email']?></div>
+
+                <input type="text" placeholder="Objet" name="objet" value="<?php echo htmlspecialchars($objet)?>">
+                <div class="error"><?php echo $errors['objet']?></div>
+
+                <textarea placeholder="Votre message" cols="30" rows="10" name="message" value="<?php echo htmlspecialchars($message)?>"></textarea>
+                <div class="error"><?php echo $errors['message']?></div>
+
+                <button name="submit" value="submit">Envoyer</button>
             </form>
+        </div>
+        <div class="map">
+            <a href="https://www.google.com/maps/place/Iuheg/@9.6291193,-13.6072187,16.6z/data=!4m6!3m5!1s0xf1d2a762b20a9b7:0x5a97743609432a1!8m2!3d9.6294487!4d-13.604512!16s%2Fg%2F11c6cbf9wm">
+                <img src="../assets/iuheg_gmaps.png" alt="">
+            </a>
         </div>
     </section>
     <!--Footer start-->

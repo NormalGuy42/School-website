@@ -38,6 +38,26 @@
             margin-top: 18px;
             display: block;
         }
+        .program img{
+            height: 420px;
+            width: 60%;
+            min-width: 280px;
+            max-width: 800px;
+            display: block;
+            margin: 20px auto;
+            object-fit: cover;
+            object-position: left;
+        }
+        .program label{
+            display: block;
+            text-align: center;
+            font-size: 24px;
+            color: darkblue;
+        }
+        .program .person_title{
+            display: block;
+            text-align: center;
+        }
         /*Divider*/
         .divider{
             height: 10px;
@@ -45,12 +65,15 @@
             margin: 40px auto;
             background-color: var(--title-blue);
         }
-        @media (max-width:520px) {
+        @media (max-width:700px) {
             .program_grid{
                 grid-template-columns: repeat(1,130px);
             }
             .divider{
                 width: 150px;
+            }
+            .program img{
+                height: 300px;
             }
         }        
         
@@ -65,12 +88,12 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="../assets/bah_kane_circle.png" alt="school logo">
                 </a>
             </div>
             <ul class="menu">
-                <li><a href="index.html">Acceuil</a></li>
+                <li><a href="index.php">Acceuil</a></li>
                 <li><a href="admission.html">Admission</a></li>
                 <li><a href="program.html">Programmes</a></li>
                 <li><a href="about.html">A propos</a></li>
@@ -124,7 +147,9 @@
                 aliquam debitis aperiam cumque blanditiis! Dignissimos, maiores minus?
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ab provident asperiores excepturi, dicta possimus eum molestiae quod. Sint amet recusandae minima a adipisci, provident iusto laborum qui repellat totam.
             </p>
-            <img src="" alt="">
+            <img src="../assets/Pierre-claver-birame-Sene_avatar.jpg" alt="">
+            <label>Pierre Claver Birame Sene</label>
+            <p class="person_title">Proviseur Systeme français</p>
             <h3>Admission</h3>
             <a href="admission.html">
                 Cliquez pour voir le prix de la scolarité
@@ -145,7 +170,9 @@
                 aliquam debitis aperiam cumque blanditiis! Dignissimos, maiores minus?
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ab provident asperiores excepturi, dicta possimus eum molestiae quod. Sint amet recusandae minima a adipisci, provident iusto laborum qui repellat totam.
             </p>
-            <img src="" alt="">
+            <img src="../assets/Abdoulaye-Diallo_avatar.jpg" alt="">
+            <label for="">Adoulaye Diallo</label>
+            <p class="person_title">Recteur</p>
             <h3>Admission</h3>
             <a href="admission.html">
                 Cliquez pour voir le prix de la scolarité

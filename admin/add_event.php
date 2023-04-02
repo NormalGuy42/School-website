@@ -12,6 +12,16 @@
             position: relative;
             height: 50px;
         }
+        .choice{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .choice select{
+            max-width: 700px;
+            width: 80%;
+            min-width: 300px;
+        }
         svg.close{
             position: absolute;
             right: 5px;
@@ -20,7 +30,8 @@
             width: 50px;
         }
         form{
-            display: flex;
+            /* display: flex; */
+            display: none;
             flex-direction: column;
             align-items: center;
         }
@@ -35,6 +46,7 @@
             padding: 15px 20px;
             box-sizing: border-box;
             font-size: 17px;
+            background-color: white;
         }
         .img_container{
             background-color: #eee;
@@ -52,6 +64,15 @@
         }
         .finish{
             margin: 30px 0;
+        }
+        .flex{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .flex input,select{
+            width: 150px;
+            min-width: unset;
         }
         @media (max-width: 600px) {
             .page{
@@ -72,12 +93,15 @@
                     </path>
                 </svg>
             </div>
-            <form action="add_program.php" method="POST">
+            <div class="choice">
                 <h2>Choissisez</h2>
                 <select name="program_type" id="">
-                    <option value="">Evenement</option>
-                    <option value="">Blog</option>
+                    <option>Que voulez-vous ajouter?</option>
+                    <option value="event">Evenement</option>
+                    <option value="blog">Blog</option>
                 </select>
+            </div>
+            <form action="add_program.php" method="POST" id="event">
                 <h2>Titre</h2>
                 <input type="text" placeholder="Entrer le titre">
                 <h2>Date</h2>
@@ -89,10 +113,59 @@
                     <button>Envoyer</button>
                 <h2>Contenu</h2>
                 <textarea name="presentation" id="" cols="30" rows="20"></textarea>
-                
+                <button class="finish">Terminer</button>
+            </form>
+            <form action="add_program.php" method="POST" id="blog">
+                <h2>Titre</h2>
+                <input type="text" placeholder="Entrer le titre">
+                <div class="flex">
+                    <h2>Jour</h2>
+                    <input type="text" placeholder="aaaa/mm/jj">
+                    <h2>Mois</h2>
+                    <select name="month" id="">
+                        <option value="JAN">JAN</option>
+                        <option value="FEV">FEV</option>
+                        <option value="MARS">MARS</option>
+                        <option value="AVR">AVR</option>
+                        <option value="MAI">MAI</option>
+                        <option value="JUIN">JUIN</option>
+                        <option value="JUL">JUL</option>
+                        <option value="AOÛT">AOÛT</option>
+                        <option value="SEP">SEP</option>
+                        <option value="OCT">OCT</option>
+                        <option value="NOV">NOV</option>
+                        <option value="DEC">DEC</option>
+                    </select>
+                </div>
+                <h2>Mettre une image</h2>
+                    <div class="img_container">
+
+                    </div>
+                    <button>Envoyer</button>
+                <h2>Contenu</h2>
+                <textarea name="content" id="" cols="30" rows="20"></textarea>
                 <button class="finish">Terminer</button>
             </form>
         </div>
     </section>        
     </body>
+    <script defer>
+        var select = document.querySelector('select');
+        var eventForm = document.querySelector('#event');
+        var blogForm = document.querySelector('#blog');
+        select.addEventListener('change',()=>{
+            if(select.value == "event"){
+                blogForm.style.display = "flex";
+                if(eventForm.style.display = "flex"){
+                    eventForm.style.display = "none";
+                }
+            }
+            else if(select.value == "blog"){
+                eventForm.style.display = "flex";
+                if(blogForm.style.display = "flex"){
+                    blogForm.style.display = "none";
+                }
+            }
+        })
+    </script>
 </html>

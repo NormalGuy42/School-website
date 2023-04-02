@@ -207,12 +207,25 @@ svg {
     right: 20px;
     cursor: pointer;
 }
+/*Info start*/
 .info{
     display: none;
+    padding: 0 20px;
 }
 .info[data-box-active="true"]{
     display: block;
 }
+.info h3{
+    font-weight: bold;
+    margin: 20px 0;
+    font-size: 23px;
+}
+.info img{
+    height: 200px;
+    display: block;
+    object-fit: cover;
+}
+/*Info end*/
 .menu{
     display: none;
     position: absolute;
@@ -226,6 +239,9 @@ svg {
 }
 .menu[data-menu-active="true"]{
     display: block;
+}
+.menu div{
+    margin-bottom: 8px;
 }
 /*Data box end*/
 /*Form application start*/

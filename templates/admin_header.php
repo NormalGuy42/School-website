@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!$_SESSION['isLogged']) {
+      header("location: index.php"); 
+      die(); 
+    }
+?>
 <header>
     <div class="logo">
         <img src="../assets/bah_kane_circle.png" alt="">

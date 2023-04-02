@@ -72,19 +72,19 @@
                     </path>
                 </svg>
             </div>
-            <form action="add_program.php" method="POST">
+            
+            <form action="add_program.php" method="POST" id="">
                 <h2>Choissisez le type de programme</h2>
                 <select name="program_type" id="">
-                    <option value="">Masters</option>
-                    <option value="">Licence</option>
-                    <option value="">Formation</option>
-                    <option value="">Formation qualifiante</option>
+                    <option value="masters">Masters</option>
+                    <option value="licence">Licence</option>
+                    <option value="formation">Formation</option>
+                    <option value="formation_qualifiante">Formation qualifiante</option>
                 </select>
                 <h2>Titre du programme</h2>
                 <input type="text" placeholder="Entrer le titre">
                 <h2>Mettre une image</h2>
                     <div class="img_container">
-
                     </div>
                     <button>Envoyer</button>
                 <h2>Présentation du programme</h2>

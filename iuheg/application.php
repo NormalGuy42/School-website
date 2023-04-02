@@ -24,6 +24,14 @@
             max-width: 700px;
             margin: 0 auto 12px;
         }
+        /*Hide and show start*/
+        .select_hide{
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+        /*Hide and show end*/
         .step{
             padding: 0 20px;
         }
@@ -78,10 +86,11 @@
             margin: 0 auto;
             border-radius: 5px;
             box-shadow: 0 0 2px 2px rgb(0,0,0,15%);
+            height: 60px;
         }
         .step .box h3{
             margin-left: 20px;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: normal;
         }
         .step .box_grid .box .buttons{
@@ -116,15 +125,21 @@
                 <input type="text" placeholder="Prénom">
                 <select name="" id="program_type">
                     <option>Type de programme</option>
-                    <option>Licence</option>
-                    <option>Masters</option>
-                    <option>Formation professionelle</option>
+                    <option value="licence">Licence</option>
+                    <option value="master">Masters</option>
+                    <option value="formation">Formation professionelle</option>
                 </select>
-                <select name="" id="program_name">
-                    <option>Choisissez le programme</option>
-                    <optgroup>
-                        <option></option>
-                    </optgroup>
+                <select name="licence" id="type_licence" class="select_hide">
+                    <option>Choissisez le programme</option>
+                    <option value="">Licence</option>
+                </select>
+                <select name="master" id="type_master" class="select_hide">
+                    <option>Choissisez le programme</option>
+                    <option>Masters</option>
+                </select>
+                <select name="formation" id="type_formation" class="select_hide">
+                    <option>Choissisez le programme</option>
+                    <option>Formation</option>
                 </select>
             </div>
             <div class="step">
@@ -191,8 +206,41 @@
             </div>
         </form>
     </section>
-    <script>
+    <script defer>
+        //Hide options and show options depending on progral selection
         var programType = document.querySelector('#program_type');
+        var optionFormation = document.querySelector('#type_formation');
+        var optionMaster = document.querySelector('#type_master')
+        var optionLicence = document.querySelector('#type_licence')
+        programType.addEventListener('change',()=>{
+            if(programType.value == "licence"){
+                optionLicence.classList.add('show');
+                if(optionMaster.classList.contains('show')){
+                    optionMaster.classList.remove('show')
+                }
+                if(optionFormation.classList.contains('show')){
+                    optionFormation.classList.remove('show')
+                }  
+            }
+            if(programType.value == "master"){
+                optionMaster.classList.add('show');
+                if(optionLicence.classList.contains('show')){
+                    optionLicence.classList.remove('show')
+                }
+                if(optionFormation.classList.contains('show')){
+                    optionFormation.classList.remove('show')
+                }  
+            }
+            if(programType.value == "formation"){
+               optionFormation .classList.add('show');
+               if(optionMaster.classList.contains('show')){
+                    optionMaster.classList.remove('show')
+                }
+                if(optionLicence.classList.contains('show')){
+                    optionLicence.classList.remove('show')
+                } 
+            }
+        })
     </script>
 </body>
 </html>

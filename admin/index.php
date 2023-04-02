@@ -1,22 +1,34 @@
-<?php 
-    $id = $password = '';
-    $errors = ['id' =>'','password'=>''];
-    if(isset($_POST['submit'])){
-        //Check id
-        if(empty($_POST['id'])){
-            $id = $_POST['id'];
-            $errors['id'] = 'Vous devez entrer un identifiant';
-        }
-        //Check id
-        if(empty($_POST['password'])){
-            $password = $_POST['password'];
-            $errors['password'] = 'Vous devez entrer un identifiant';
-        }
-        //If the id and password are correct
-        if(!array_filter($errors)){
-            header('Location: admin.php');
-        }
+<?php
+    //Connect to database
+    $conn = "";
+    try {
+        $servername = "localhost";
+        $dbname = "iuheg";
+        $username = "admin";
+        $password = "200410";
+    
+        $conn = new PDO(
+            "mysql:host=$servername; dbname=iuheg",
+            $username, $password
+        );
+        
+    $conn->setAttribute(PDO::ATTR_ERRMODE,
+                        PDO::ERRMODE_EXCEPTION);
     }
+    catch(PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+    }
+    //Connect to database end
+    //Validate start
+    function test_input($data) {
+     
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+      
+    
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +47,7 @@
             height: fit-content;
         }
         body{
-            height: 100vh;
+            max-height: 100vh;
             width: 100%;
             background-color: #01509d;
         }
@@ -72,18 +84,56 @@
             padding: 5px 8px;
             cursor: pointer;
         }
+        .error{
+            color: red;
+            background-color: white;
+            position: relative;
+            width: fit-content;
+            padding: 8px;
+            box-shadow: 0 0 2px 2px rgb(0,0,0,15%);
+            border-radius: 5px;
+            font-weight: bold;
+            top: 50px;
+            font-family: arial;
+            margin: 0 auto;
+        }
+        @media (max-width:400px) {
+            .error{
+                width: 300px;
+            }
+        }
     </style>
 </head>
 <body>
+    <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $username = test_input($_POST["username"]);
+            $password = test_input($_POST["password"]);
+            $stmt = $conn->prepare("SELECT * FROM admin_login");
+            $stmt->execute();
+            $users = $stmt->fetchAll();
+             
+            foreach($users as $user) {
+                 session_start();
+                if(($user['username'] == $username) &&
+                    ($user['password'] == $password)) {
+                        header("location: admin.php");
+                        $_SESSION['isLogged'] = true;
+                }
+                else {
+                    echo '<div class="error">Mot de Passe ou Identifiant incorrect. Réesayez!</div>';
+                }
+            }
+        }
+        
+    ?>
     <div class="logo">
         <img src="../assets/ecolebahkane.jpeg">
     </div>
     <form action="index.php" method="POST">
         <div>
-            <input type="text" placeholder="Identifiant" name="id" value="<?php echo htmlspecialchars($id)?>">
-            <div class="error"><?php echo htmlspecialchars($errors['id'])?></div>
-            <input type="password" placeholder="Mot de passe" name="password" value="<?php echo htmlspecialchars($password)?>">
-            <div class="error"><?php echo htmlspecialchars($errors['password'])?></div>
+            <input type="text" placeholder="Identifiant" name="username">
+            <input type="password" placeholder="Mot de passe" name="password">
             <button value="submit" name="submit">Se connecter</button>
         </div>
     </form>

@@ -216,6 +216,10 @@
             width: 100%;
             object-fit: cover;
         }
+        .flex p{
+            letter-spacing: 0.03rem;
+            line-height: 22px;
+        }
         /*Vie etudiante end*/
         .content .circular img{
             border-radius: 50%;
@@ -308,12 +312,12 @@
             <header>
                 <nav>
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="index.php">
                             <img src="../assets/bah_kane_circle.png" alt="school logo">
                         </a>
                     </div>
                     <ul class="menu">
-                        <li><a href="index.html">Acceuil</a></li>
+                        <li><a href="index.php">Acceuil</a></li>
                         <li><a href="admission.html">Admission</a></li>
                         <li><a href="program.html">Programmes</a></li>
                         <li><a href="about.html">A propos</a></li>
