@@ -69,10 +69,31 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            margin-bottom: 20px;
+            width: 80%;
+            min-width: 300px;
+            max-width: 700px;
         }
         .flex input,select{
             width: 150px;
             min-width: unset;
+        }
+        .row{
+            display: flex;
+            margin: 10px 0 20px;
+            width: 80%;
+            min-width: 300px;
+            max-width: 700px;
+            align-items: center;
+        }
+        .row input[type="checkbox"]{
+            height: 30px;
+            width: 30px;
+            min-width: unset;
+        }
+        .row label{
+            color: gray;
+            margin-left: 10px;
         }
         @media (max-width: 600px) {
             .page{
@@ -118,6 +139,10 @@
             <form action="add_program.php" method="POST" id="blog">
                 <h2>Titre</h2>
                 <input type="text" placeholder="Entrer le titre">
+                <div class="row">
+                    <input type="checkbox">
+                    <label for="">Mettre en valeur</label>
+                </div>
                 <div class="flex">
                     <h2>Jour</h2>
                     <input type="text" placeholder="aaaa/mm/jj">
@@ -154,13 +179,13 @@
         var eventForm = document.querySelector('#event');
         var blogForm = document.querySelector('#blog');
         select.addEventListener('change',()=>{
-            if(select.value == "event"){
+            if(select.value == "blog"){
                 blogForm.style.display = "flex";
                 if(eventForm.style.display = "flex"){
                     eventForm.style.display = "none";
                 }
             }
-            else if(select.value == "blog"){
+            else if(select.value == "event"){
                 eventForm.style.display = "flex";
                 if(blogForm.style.display = "flex"){
                     blogForm.style.display = "none";

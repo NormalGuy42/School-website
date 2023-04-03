@@ -1,6 +1,7 @@
 <?php 
+    include('../config/connection.php');
     //Connect to database
-    $db = mysqli_connect('localhost','admin','200410','iuheg');
+    $db = mysqli_connect($servername,$username,$password,$dbname);
     //Check connection
     if(!$db){
         echo 'Connection error '.mysqli_connect_error();

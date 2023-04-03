@@ -234,7 +234,7 @@
                 <input type="text" placeholder="Objet" name="objet" value="<?php echo htmlspecialchars($objet)?>">
                 <div class="error"><?php echo $errors['objet']?></div>
 
-                <textarea placeholder="Votre message" cols="30" rows="10" name="message" value="<?php echo htmlspecialchars($message)?>"></textarea>
+                <textarea placeholder="Votre message" cols="30" rows="10" name="message"><?php echo htmlspecialchars($message)?></textarea>
                 <div class="error"><?php echo $errors['message']?></div>
 
                 <button name="submit" value="submit">Envoyer</button>

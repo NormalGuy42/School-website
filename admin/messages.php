@@ -1,3 +1,22 @@
+<?php
+    //Connect to database
+    $db = mysqli_connect('localhost','admin','200410','iuheg');
+    //Check connection
+    if(!$db){
+        echo 'Connection error '.mysqli_connect_error();
+    }
+    //Write query for all blogs
+    $sql = 'SELECT * FROM messages';
+    // make query and get result
+    $result = mysqli_query($db,$sql);
+    //fetch the resulting rows as an array
+    $data = mysqli_query($db,$sql);
+    //Free result from memory
+    mysqli_free_result($result);
+    //Close connection
+    mysqli_close($db);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

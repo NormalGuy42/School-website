@@ -2,13 +2,9 @@
     //Connect to database
     $conn = "";
     try {
-        $servername = "localhost";
-        $dbname = "iuheg";
-        $username = "admin";
-        $password = "200410";
-    
+        include('../config/connection.php');
         $conn = new PDO(
-            "mysql:host=$servername; dbname=iuheg",
+            "mysql:host=$servername; dbname=$dbname",
             $username, $password
         );
         
@@ -106,6 +102,9 @@
 </head>
 <body>
     <?php
+        session_start();
+        $_SESSION['isLogged'] = false;
+        
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $username = test_input($_POST["username"]);
             $password = test_input($_POST["password"]);
@@ -114,7 +113,6 @@
             $users = $stmt->fetchAll();
              
             foreach($users as $user) {
-                 session_start();
                 if(($user['username'] == $username) &&
                     ($user['password'] == $password)) {
                         header("location: admin.php");

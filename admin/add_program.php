@@ -1,3 +1,83 @@
+<?php
+    $type =$title = $presentation = $scolarite = $admission = $structure =$img = '';
+    $errors = ['type'=>'','title'=>'','presentation'=>'','scolarite'=>'','admission'=>'','structure'=>'','img'=>''];
+    //upload image
+    $GLOBALS['imageSource'] = '';
+    if(isset($_POST['submit'])){
+        //Image upload
+        if(isset($_POST['upload'])){
+            $imageFile = $_FILES['image'];
+            //Extract variables
+            $imageName = $_FILES['image']['name'];
+            $imageSize = $_FILES['image']['size'];
+            $imageTempName = $_FILES['image']['tmp_name'];
+            $imageType = $_FILES['image']['type'];
+            $imageError = $_FILES['image']['error'];
+        
+            $imageExtension = explode('.',$imageName);
+            $imageActualExt = strtolower(end($imageExtension));
+    
+            $allowed = array('jpg','jpeg','png','webp','pdf','gif');
+            if(in_array($imageActualExt,$allowed)){
+                if($imageError === 0){
+                    if($imageSize < 5000000){
+                        $imageNewName = uniqid('',true).".".$imageActualExt;
+                        $imageDestination = '../assets/program/'.$imageNewName;
+                        $GLOBALS['imageSource'] = $imageDestination;
+                        move_uploaded_file($imageTempName,$imageDestination);
+                        // header('Location: add_program.php');
+                    }else{
+                        echo "Cette image est trop grande!";
+                    }
+                }else{
+                    echo "Une erreur a été produite lors du téléchargement";
+                }
+            }else{
+                echo "Ce fichier n'a pas une extension accepté";
+            }
+        }
+
+        if(empty($_POST['type'])){
+            $errors['type'] = 'Vous devez choisir un type de programme';
+        }else{
+            $type = $_POST['type'];
+        }
+        if(empty($_POST['type'])){
+            $errors['title'] = 'Vous devez entrer un titre';
+        }else{
+            $title = $_POST['title'];
+        }
+        if(empty($_POST['presentation'])){
+            $errors['presentation'] = 'Vous devez remplir la partie presentation';
+        }else{
+            $presentation = $_POST['presentation'];
+        }
+        if(empty($_POST['scolarite'])){
+            $errors['scolarite'] = 'Vous devez remplir la partie scolarite';
+        }else{
+            $scolarite = $_POST['scolarite'];
+        }
+        if(empty($_POST['structure'])){
+            $errors['structure'] = 'Vous devez remplir la partie structure';
+        }else{
+            $structure = $_POST['structure'];
+        }
+        if(empty($_POST['admission'])){
+            $errors['admission'] = 'Vous devez remplir la partie admission';
+        }else{
+            $admission = $_POST['admission'];
+        }
+        if(empty($GLOBALS['imageSource'])){
+            $errors['img'] = 'Vous devez choisir une image';
+        }else{
+            $img = $GLOBALS['imageSource'];
+        }
+        print_r($_POST);
+    }
+    
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,14 +124,31 @@
             height: 250px;
             margin-bottom: 20px;
         }
+        .img_container img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
         button{
             height: 38px;
             background-color: darkblue;
             color: white;
             font-size: 18px;
         }
+        input[type="file"] {
+            /* display: none; */
+            width: 200px;
+        }
+        .upload{
+            background-color: darkblue;
+            color: white;
+            font-size: 18px;
+            padding: 8px;
+            cursor: pointer;
+        }
         .finish{
             margin: 30px 0;
+            cursor: pointer;
         }
         @media (max-width: 600px) {
             .page{
@@ -73,29 +170,47 @@
                 </svg>
             </div>
             
-            <form action="add_program.php" method="POST" id="">
+            <form action="add_program.php" method="POST" enctype="multipart/form-data" id="">
                 <h2>Choissisez le type de programme</h2>
-                <select name="program_type" id="">
+                <select name="type" id="" value="<?php echo htmlspecialchars($type)?>">
+                    <option>Type de programme</option>
                     <option value="masters">Masters</option>
                     <option value="licence">Licence</option>
                     <option value="formation">Formation</option>
                     <option value="formation_qualifiante">Formation qualifiante</option>
                 </select>
+                <div class="error"><?php echo $errors['type']?></div>
                 <h2>Titre du programme</h2>
-                <input type="text" placeholder="Entrer le titre">
+                <input type="text" placeholder="Entrer le titre" name="title" value="<?php echo htmlspecialchars($title)?>">
+                <div class="error"><?php echo $errors['type']?></div>
                 <h2>Mettre une image</h2>
                     <div class="img_container">
+                        <?php if(!$errors['img'] && isset($_POST['upload'])){echo '<img src="$imageSource">';}?>
                     </div>
-                    <button>Envoyer</button>
+                    <!-- <button>Envoyer</button> -->
+                    <!-- <label for="file-upload" class="upload">
+                        Choisir une image
+                    </label> -->
+                    <input type="file" name="image" id="file-upload" accept="image/*">
+                    <button name="upload" value="submit" type="submit">Envoyer</button>
+                <div class="error"><?php echo $errors['img']?></div>
                 <h2>Présentation du programme</h2>
-                <textarea name="presentation" id="" cols="30" rows="10"></textarea>
+                <textarea name="presentation" id="" cols="30" rows="10" name="presentation"><?php echo htmlspecialchars($presentation)?></textarea>
+                <div class="error"><?php echo $errors['presentation']?></div>
+                
                 <h2>Structure du programme</h2>
-                <textarea name="structure" id="" cols="30" rows="10"></textarea>
+                <textarea name="structure" id="" cols="30" rows="10" name="structure"><?php echo htmlspecialchars($structure)?></textarea>
+                <div class="error"><?php echo $errors['structure']?></div>
+                
                 <h2>Admission</h2>
-                <textarea name="admision" id="" cols="30" rows="10"></textarea>
+                <textarea name="admission" id="" cols="30" rows="10" name="admission"><?php echo htmlspecialchars($admission)?></textarea>
+                <div class="error"><?php echo $errors['admission']?></div>
+                
                 <h2>Scolarité</h2>
-                <textarea name="scolarite" id="" cols="30" rows="10"></textarea>
-                <button class="finish">Terminer</button>
+                <textarea name="scolarite" id="" cols="30" rows="10" name="scolarite"><?php echo htmlspecialchars($scolarite)?></textarea>
+                <div class="error"><?php echo $errors['scolarite']?></div>
+                
+                <button class="finish" name="submit" value="submit">Terminer</button>
             </form>
         </div>
     </section>        
