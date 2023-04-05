@@ -1,42 +1,43 @@
 <?php
+    include('../config/connection.php');
     $type =$title = $presentation = $scolarite = $admission = $structure =$img = '';
     $errors = ['type'=>'','title'=>'','presentation'=>'','scolarite'=>'','admission'=>'','structure'=>'','img'=>''];
     //upload image
     $GLOBALS['imageSource'] = '';
-    if(isset($_POST['submit'])){
-        //Image upload
-        if(isset($_POST['upload'])){
-            $imageFile = $_FILES['image'];
-            //Extract variables
-            $imageName = $_FILES['image']['name'];
-            $imageSize = $_FILES['image']['size'];
-            $imageTempName = $_FILES['image']['tmp_name'];
-            $imageType = $_FILES['image']['type'];
-            $imageError = $_FILES['image']['error'];
-        
-            $imageExtension = explode('.',$imageName);
-            $imageActualExt = strtolower(end($imageExtension));
     
-            $allowed = array('jpg','jpeg','png','webp','pdf','gif');
-            if(in_array($imageActualExt,$allowed)){
-                if($imageError === 0){
-                    if($imageSize < 5000000){
-                        $imageNewName = uniqid('',true).".".$imageActualExt;
-                        $imageDestination = '../assets/program/'.$imageNewName;
-                        $GLOBALS['imageSource'] = $imageDestination;
-                        move_uploaded_file($imageTempName,$imageDestination);
-                        // header('Location: add_program.php');
-                    }else{
-                        echo "Cette image est trop grande!";
-                    }
+    /*Submit form*/
+    if(isset($_POST['submit'])){
+        //Image Upload start
+        $imageFile = $_FILES['image'];
+        //Extract variables
+        $imageName = $_FILES['image']['name'];
+        $imageSize = $_FILES['image']['size'];
+        $imageTempName = $_FILES['image']['tmp_name'];
+        $imageType = $_FILES['image']['type'];
+        $imageError = $_FILES['image']['error'];
+    
+        $imageExtension = explode('.',$imageName);
+        $imageActualExt = strtolower(end($imageExtension));
+
+        $allowed = array('jpg','jpeg','png','webp','pdf','gif');
+        if(in_array($imageActualExt,$allowed)){
+            if($imageError === 0){
+                if($imageSize < 5000000){
+                    $imageNewName = uniqid('',true).".".$imageActualExt;
+                    $imageDestination = '../assets/program/'.$imageNewName;
+                    $GLOBALS['imageSource'] = $imageDestination;
+                    move_uploaded_file($imageTempName,$imageDestination);
+                    // header('Location: add_program.php');
                 }else{
-                    echo "Une erreur a été produite lors du téléchargement";
+                    $errors['img'] = "Cette image est trop grande!";
                 }
             }else{
-                echo "Ce fichier n'a pas une extension accepté";
+                $errors['img'] = "Une erreur a été produite lors du téléchargement";
             }
+        }else{
+            $errors['img'] = "Ce fichier n'a pas une extension accepté";
         }
-
+        //Image Upload end
         if(empty($_POST['type'])){
             $errors['type'] = 'Vous devez choisir un type de programme';
         }else{
@@ -70,9 +71,27 @@
         if(empty($GLOBALS['imageSource'])){
             $errors['img'] = 'Vous devez choisir une image';
         }else{
-            $img = $GLOBALS['imageSource'];
+            $_POST['image'] = $GLOBALS['imageSource'];
         }
-        print_r($_POST);
+        //If no errors then add to database
+        if(!array_filter($errors)){
+            $type = mysqli_real_escape_string($db,$_POST['type']);
+            $title = mysqli_real_escape_string($db,$_POST['title']);
+            $presentation = mysqli_real_escape_string($db,$_POST['presentation']);
+            $structure = mysqli_real_escape_string($db,$_POST['structure']);
+            $admission = mysqli_real_escape_string($db,$_POST['admission']);
+            $scolarite = mysqli_real_escape_string($db,$_POST['scolarite']);
+            $image = mysqli_real_escape_string($db,$_POST['image']);
+
+            $sql = "INSERT INTO $type(title,presentation,structure,admission,scolarite,image)
+             VALUES('$title','$presentation','$structure','$admission','$scolarite','$image')";
+             if(mysqli_query($db,$sql)){
+                header('Location: iuheg/programs.php');
+            }else{
+                echo '<div class="database_error">Erreur! Réesayez</div>';
+            }
+        }
+        
     }
     
 ?>
@@ -134,6 +153,7 @@
             background-color: darkblue;
             color: white;
             font-size: 18px;
+            cursor: pointer;
         }
         input[type="file"] {
             /* display: none; */
@@ -159,7 +179,7 @@
     </style>
 </head>
     <body>
-        <?php include('../templates/admin_header.php')?>
+        <?php include('templates/admin_header.php')?>
         <div class="page">
             <div class="close_container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 25 25" onclick="history.back()" class="close">
@@ -177,22 +197,11 @@
                     <option value="masters">Masters</option>
                     <option value="licence">Licence</option>
                     <option value="formation">Formation</option>
-                    <option value="formation_qualifiante">Formation qualifiante</option>
                 </select>
                 <div class="error"><?php echo $errors['type']?></div>
                 <h2>Titre du programme</h2>
                 <input type="text" placeholder="Entrer le titre" name="title" value="<?php echo htmlspecialchars($title)?>">
                 <div class="error"><?php echo $errors['type']?></div>
-                <h2>Mettre une image</h2>
-                    <div class="img_container">
-                        <?php if(!$errors['img'] && isset($_POST['upload'])){echo '<img src="$imageSource">';}?>
-                    </div>
-                    <!-- <button>Envoyer</button> -->
-                    <!-- <label for="file-upload" class="upload">
-                        Choisir une image
-                    </label> -->
-                    <input type="file" name="image" id="file-upload" accept="image/*">
-                    <button name="upload" value="submit" type="submit">Envoyer</button>
                 <div class="error"><?php echo $errors['img']?></div>
                 <h2>Présentation du programme</h2>
                 <textarea name="presentation" id="" cols="30" rows="10" name="presentation"><?php echo htmlspecialchars($presentation)?></textarea>
@@ -209,7 +218,8 @@
                 <h2>Scolarité</h2>
                 <textarea name="scolarite" id="" cols="30" rows="10" name="scolarite"><?php echo htmlspecialchars($scolarite)?></textarea>
                 <div class="error"><?php echo $errors['scolarite']?></div>
-                
+                <h2>Mettre une image</h2>
+                <input type="file" name="image" accept="image/*">
                 <button class="finish" name="submit" value="submit">Terminer</button>
             </form>
         </div>

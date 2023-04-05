@@ -1,4 +1,9 @@
-
+<?php
+    include('../config/connection.php');
+    $sql = 'SELECT title,main_bool,id FROM formation';
+    $formations = mysqli_query($db,$sql);
+    $formationQualifiante = [];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,48 +46,17 @@
             <h1 class="section_title">NOS FORMATIONS</h1>
             <div class="programs">
                 <ul>
-                    <li>
-                        <div class="program_box">
-                            <h2>Géometrie et Topographie</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Agent technique de santé et Sage femme</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Comptabilité et Informatique de Gestion</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>
-                            Informatique
-                            </h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Logistique et Transport</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Transit et Douane</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Marketing et Commerce internationale</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Sanitaier, Froid et Ventilation</h2>
-                        </div>
-                    </li>
+                    <?php foreach($formations as $formation):?>
+                        <?php if(!$formation['main_bool']):?>
+                        <li>
+                            <a href="programs.php?type=formation&id=<?php echo $formation['id']?>">
+                                <div class="program_box">
+                                    <h2><?php echo $formation['title']?></h2>
+                                </div>
+                            </a>
+                        </li>
+                        <?php endif?>
+                    <?php endforeach ?>
                 </ul>
             </div>
         </section>
@@ -90,42 +64,23 @@
             <h1 class="section_title">NOS FORMATIONS QUALIFIANTES (CAP,BT)</h1>
             <div class="programs">
                 <ul>
-                    <li>
-                        <div class="program_box">
-                            <h2>Batiment: Coffrage, Ferraillage et Maçonnerie</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Plomberie et Electricité</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Carrelage et Peinture</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Sécretariat de Direction</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Techniques comptables (Operations comptables et Sage compta)</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Entreuprenariat et Innovation</h2>
-                        </div>
-                    </li>
+                    <?php foreach($formations as $formation):?>
+                        <?php if($formation['main_bool']):?>
+                        <li>
+                            <a href="programs.php?type=formation&id=<?php echo $formation['id']?>">
+                                <div class="program_box">
+                                    <h2><?php echo $formation['title']?></h2>
+                                </div>
+                            </a>
+                        </li>
+                        <?php endif?>
+                    <?php endforeach ?>
                 </ul>
             </div>
         </section>        
     </section>
     <!--Footer start-->
-   <?php include('templates/iuheg_footer.php')?>
+   <?php include('../templates/iuheg_footer.php')?>
     <!--Footer end-->   
 </body>
 </html>

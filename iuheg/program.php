@@ -1,3 +1,22 @@
+<?php
+    include('../config/connection.php');  
+    if(isset($_GET['id'])){
+        $type = mysqli_real_escape_string($db,$_GET['type']);
+        $id = mysqli_real_escape_string($db,$_GET['id']);
+        
+        //SQL query
+        $sql = "SELECT * FROM $type WHERE id = $id";
+        $result = mysqli_query($db,$sql);
+        //put in an array
+        $data = mysqli_fetch_assoc($result);
+        //Free the result
+        mysqli_free_result($result);
+        
+        
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +30,7 @@
         .presentation{
             height: 400px;
             width: 100%;
-            background: url('../assets/money.jpg') no-repeat;
+            background: url('<?php echo $data['image']?>') no-repeat;
             background-size: cover;
             background-position: center;
         }
@@ -115,21 +134,16 @@
     </div>
     <section>
         <div class="title">
-            <h1>Business Administration</h1>
+            <h1><?php echo $data['title']?></h1>
         </div>
             <div class="info">
                 <div class="tab">
                     <button data-btn-active="true">Présentation</button>
                     <section class="tab_info" data-active="true">
                         <h2>DETAILS DU PROGRAMME</h2>
-                        <ul>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque repellat molestiae 
-                                est qui et tempore placeat, nostrum reiciendis accusantium ea.</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque repellat molestiae 
-                                est qui et tempore placeat, nostrum reiciendis accusantium ea.</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque repellat molestiae 
-                                est qui et tempore placeat, nostrum reiciendis accusantium ea.</li>
-                        </ul>
+                        <p>
+                            <?php echo $data['presentation']?>
+                        </p>
                     </section>
                     <!--Added this div here so that the absolutely positioned section doesn't overlap with the footer-->
                     <div class="space" style="height: 800px;"></div>
@@ -138,19 +152,27 @@
                     <button>Structure du programme</button>
                     <section class="tab_info">
                         <h2>Structure</h2>
+                        <p>
+                            <?php echo $data['structure']?>
+                        </p>
                     </section>
                 </div>
                 <div class="tab">
                     <button>Admission</button>
                     <section class="tab_info">
                         <h2>CONDITIONS D'ADMISSION</h2>
-
+                        <p>
+                            <?php echo $data['admission']?>
+                        </p>
                     </section>
                 </div>
                 <div class="tab">
                     <button>Frais de scolarité</button>
                     <section class="tab_info">
                         <h2>Scolarité</h2>
+                        <p>
+                            <?php echo $data['scolarite']?>
+                        </p>
                     </section>
                 </div>
             </div>

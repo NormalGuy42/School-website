@@ -12,7 +12,7 @@
     <script src="admin_script.js" defer></script>
 </head>
 <body>
-    <?php include('../templates/admin_header.php')?>
+    <?php include('templates/admin_header.php')?>
     <div class="page">
         <h1 class="title">Hello Admin</h1>
         <div class="content">

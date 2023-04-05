@@ -104,7 +104,7 @@
     </style>
 </head>
     <body>
-        <?php include('../templates/admin_header.php')?>
+        <?php include('templates/admin_header.php')?>
         <div class="page">
             <div class="close_container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 25 25" onclick="history.back()" class="close">

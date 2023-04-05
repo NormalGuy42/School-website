@@ -1,3 +1,9 @@
+<?php
+    include('../config/connection.php');
+    $sql = "SELECT title,id FROM licence";
+    $licences = mysqli_query($db,$sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,48 +61,15 @@
             </div>
             <div class="programs">
                 <ul>
+                <?php foreach($licences as $licence):?>
                     <li>
-                        <div class="program_box">
-                            <a href="program.php">
-                                <h2>Business Administration</h2>
-                            </a>
-                        </div>
+                        <a href="program.php?type=licence&id=<?php echo $licence['id']?>">
+                            <div class="program_box">
+                                <h2><?php echo $licence['title']?></h2>
+                            </div>
+                        </a>
                     </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Stratégie de Marketing et Commerce International</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Droit des Affaires</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Ressources Humaines</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Banque Assurances & Finances</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Computer Science et Génie Informatique</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Sciences Infirmières</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="program_box">
-                            <h2>Géologie et Mines</h2>
-                        </div>
-                    </li>
+                <?php endforeach?>
                 </ul>
             </div>
     </section>

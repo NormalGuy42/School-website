@@ -200,6 +200,9 @@ svg {
     position: relative;
     margin-bottom: 20px;
 }
+.data_box h3{
+    max-width: 75%;
+}
 .data_box span{
     color: white;
     font-size: 30px;
@@ -214,6 +217,7 @@ svg {
 }
 .info[data-box-active="true"]{
     display: block;
+    margin-bottom: 30px;
 }
 .info h3{
     font-weight: bold;
@@ -222,6 +226,7 @@ svg {
 }
 .info img{
     height: 200px;
+    width: 100%;
     display: block;
     object-fit: cover;
 }
@@ -236,6 +241,7 @@ svg {
     color: black;
     padding: 8px;
     text-align: start;
+    z-index: 2;
 }
 .menu[data-menu-active="true"]{
     display: block;

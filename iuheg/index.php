@@ -18,6 +18,30 @@
     //Free result from memory
     mysqli_free_result($result_blog);
     mysqli_free_result($result_events);
+
+    //Newsletter submission
+    $success = ''; 
+    $error = ['email' =>''];
+    if(isset($_POST['submit'])){
+        if(empty($_POST['email'])){
+            $error['email'] = 'Vous devez entrer un email';
+        }
+        else{
+            $email = $_POST['email'];
+            if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+                $errors['email'] = 'Votre email doit être une adresse email valide';
+            }
+        }
+        if(!array_filter($error)){
+            $email = mysqli_real_escape_string($db,$_POST['email']);
+            $sql = "INSERT INTO newsletter(email) VALUES('$email')";
+    
+            if(mysqli_query($db,$sql)){
+                $success = 'Vous avez été ajouté(e) avec succès';
+                header('Location: index.php#newsletter');
+            }
+        }
+    }
     //Close connection
     mysqli_close($db);
 ?>
@@ -359,6 +383,11 @@
             background-color: cornflowerblue;
             color: white;
         }
+        .newsletter form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         .expand{
             width: 100% !important;
         }
@@ -396,6 +425,7 @@
             min-width: 100px;
             font-size: 18px;
             border: 1px solid black;
+            cursor: pointer;
         }
         /*Newsletter end*/
         /*News end*/
@@ -643,13 +673,17 @@
                     </div>
                 </div>
                 <!--Newsletter start-->
-                <div class="newsletter">
+                <div class="newsletter" id="newsletter">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="80" width="80"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 
                         64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
                     <h3>S'inscrire à notre newsletter</h3>
+                    <div class="success"><?php echo $success?></div>
                     <div class="newsletter_box">
-                        <input type="email" placeholder="Mon email">
-                        <button>S'incrire</button>
+                        <form action="index.php" method="POST">
+                            <input type="email" placeholder="Mon email" name="email">
+                            <div class="error"><?php echo $error['email'] ?></div>
+                            <button name="submit" value="submit">S'incrire</button>
+                        </form>
                     </div>
                 </div>
                 <!--Newsletter end-->

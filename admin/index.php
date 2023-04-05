@@ -102,6 +102,7 @@
 </head>
 <body>
     <?php
+        $error ="";
         session_start();
         $_SESSION['isLogged'] = false;
         
@@ -118,20 +119,21 @@
                         header("location: admin.php");
                         $_SESSION['isLogged'] = true;
                 }
-                else {
-                    echo '<div class="error">Mot de Passe ou Identifiant incorrect. Réesayez!</div>';
+                else{
+                    $error = '<div class="error">Mot de Passe ou Identifiant incorrect. Réesayez!</div>';
                 }
             }
         }
         
     ?>
+    <?php echo $error?>
     <div class="logo">
         <img src="../assets/ecolebahkane.jpeg">
     </div>
     <form action="index.php" method="POST">
         <div>
-            <input type="text" placeholder="Identifiant" name="username">
-            <input type="password" placeholder="Mot de passe" name="password">
+            <input type="text" placeholder="Identifiant" name="username" autocomplete="off">
+            <input type="password" placeholder="Mot de passe" name="password" autocomplete="off">
             <button value="submit" name="submit">Se connecter</button>
         </div>
     </form>

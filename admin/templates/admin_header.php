@@ -76,17 +76,8 @@
                         <a href="iuheg/accueil.php">
                             <div>Accueil</div>
                         </a>
-                        <a href="iuheg/masters.php">
-                            <div>Masters</div>
-                        </a>
-                        <a href="iuheg/licence.php">
-                            <div>Licence</div>
-                        </a>
-                        <a href="iuheg/formation.php">
-                            <div>Formation</div>
-                        </a>
-                        <a href="iuheg/contact.php">
-                            <div>Contact</div>
+                        <a href="iuheg/programs.php">
+                            <div>Programmes</div>
                         </a>
                     </section>
                 </li>

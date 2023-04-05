@@ -1,10 +1,5 @@
 <?php
-    //Connect to database
-    $db = mysqli_connect('localhost','admin','200410','iuheg');
-    //Check connection
-    if(!$db){
-        echo 'Connection error '.mysqli_connect_error();
-    }
+    include('../config/connection.php');
     //Write query for all blogs
     $sql = 'SELECT * FROM admin_login';
     // make query and get result
@@ -43,8 +38,8 @@
 
         }
     }
-    if(isset($_GET['delete'])){
-        $deleteID = mysqli_real_escape_string($db,$_GET['adminID']);
+    if(isset($_POST['delete'])){
+        $deleteID = mysqli_real_escape_string($db,$_POST['adminID']);
         $sql = "DELETE FROM admin_login WHERE id = $deleteID";
         mysqli_query($db,$sql);
         header('Location: settings.php');
@@ -140,7 +135,7 @@
     </style>
 </head>
 <body>
-    <?php include('../templates/admin_header.php')?>
+    <?php include('templates/admin_header.php')?>
     <div class="page">
         <h1 class="title">Admin</h1>
         <div class="content">
@@ -173,7 +168,7 @@
                             <td><?php echo htmlspecialchars($admin['username'])?></td>
                             <td><?php echo htmlspecialchars($admin['password'])?></td>
                             <td class="ellipsis">
-                                <form action="settings.php" method="GET" class="form_delete">
+                                <form action="settings.php" method="POST" class="form_delete">
                                     <input type="hidden" name="adminID" value="<?php echo $admin['id']?>">
                                     <button value="submit" name="delete">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

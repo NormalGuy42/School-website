@@ -1,3 +1,11 @@
+<?php
+    include('../config/connection.php');
+    $sql = "SELECT title,id FROM masters";
+    $masters = mysqli_query($db,$sql);
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,31 +31,16 @@
         </p>
         <div class="programs">
             <ul>
+            <?php foreach($masters as $master):?>
                 <li>
-                    <div class="program_box">
-                        <h2>Finances publiques et fiscalité</h2>
-                    </div>
+                    <a href="program.php?id=<?php echo $master['id']?>&type=masters">
+                        <div class="program_box">
+                            <h2><?php echo $master['title']?></h2>
+                        </div>
+                    </a>
                 </li>
-                <li>
-                    <div class="program_box">
-                        <h2>Monnaie banque et finance</h2>
-                    </div>
-                </li>
-                <li>
-                    <div class="program_box">
-                        <h2>Droit et Administration Judiciaire</h2>
-                    </div>
-                </li>
-                <li>
-                    <div class="program_box">
-                        <h2>Audit, Contrôle de gestion et Aide à la décision</h2>
-                    </div>
-                </li>
-                <li>
-                    <div class="program_box">
-                        <h2>Intervention et développement social</h2>
-                    </div>
-                </li>
+            <?php endforeach?>
+            </ul>
     </section>
     <!--Footer start-->
     <?php include('../templates/iuheg_footer.php')?>

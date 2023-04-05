@@ -89,17 +89,8 @@
                         <a href="accueil.php">
                             <div>Accueil</div>
                         </a>
-                        <a href="masters.php">
-                            <div>Masters</div>
-                        </a>
-                        <a href="licence.php">
-                            <div>Licence</div>
-                        </a>
-                        <a href="formation.php">
-                            <div>Formation</div>
-                        </a>
-                        <a href="contact.php">
-                            <div>Contact</div>
+                        <a href="programs.php">
+                            <div>Programmes</div>
                         </a>
                     </section>
                 </li>
